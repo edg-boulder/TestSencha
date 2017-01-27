@@ -71,6 +71,7 @@ namespace AssetRegister
                             authCookie.Expires = authTicket.Expiration;
 
                             Response.Cookies.Add(authCookie);
+                            Response.Redirect("Default.aspx");
                         }
                         else
                         {
