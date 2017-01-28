@@ -24,6 +24,16 @@ namespace AssetRegister
             return name;
         }
 
+        public static bool IsAdmin()
+        {
+            AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
+            int UserID = Security.GetUserID();
+
+            bool admin = db.Users.FirstOrDefault(user => user.id == UserID).admin;
+
+            return admin;
+        }
+
         public static bool IsAuthenticated()
         {
             HttpContext context = HttpContext.Current;

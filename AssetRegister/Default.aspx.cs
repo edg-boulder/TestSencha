@@ -18,6 +18,7 @@ namespace AssetRegister
             else
             {
                 username.Value = Security.GetUserName();
+                admin.Value = Security.IsAdmin().ToString().ToLower();
             }
         }
     }

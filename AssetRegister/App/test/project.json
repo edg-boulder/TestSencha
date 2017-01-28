@@ -1,0 +1,15 @@
+{
+    "framework": "jasmine",
+    "libs": [],
+    "coverageFilters": [],
+    "scenarios": [
+        {
+            "libs": [],
+            "coverageFilters": [],
+            "sandbox": true,
+            "directory": "End-to-End",
+            "name": "End-to-End",
+            "page": "http://172.16.143.195/AssetRegister/Login.aspx"
+        }
+    ]
+}

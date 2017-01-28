@@ -245,14 +245,14 @@ footer p {
 	letter-spacing: .4px;
 }
 
-footer a {
+a, a:visited {
 	color: #4a89dc;
 	text-decoration: none;
 	-webkit-transition:all .2s ease;
 	transition: all .2s ease;
 }
 
-footer a:hover {
+a:hover {
 	color: #666;
 	text-decoration: underline;
 }
@@ -265,4 +265,4 @@ footer img {
 
 footer img:hover { opacity: .83; }
 
-footer img:focus , footer a:focus { outline: none; }
+a:focus { outline: none; }
