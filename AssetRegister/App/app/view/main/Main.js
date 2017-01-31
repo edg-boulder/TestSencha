@@ -4,43 +4,65 @@ Ext.define('AssetRegister.view.main.Main', {
 
     requires: [
         'AssetRegister.view.main.MainController',
-        'AssetRegister.view.main.MainModel'
+        'AssetRegister.view.main.MainModel',
+        'Ext.plugin.Responsive'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
-    layout: 'fit',
+    layout: 'card',
 
     items: [{
         xtype: 'toolbar',
+        cls: 'mainHeader',
         docked: 'top',
         items: [{
-            xtype: 'spacer',
-            width: 5
+            xtype: 'button',
+            cls: 'menubutton',
+            align: 'left',
+            iconCls: 'x-fa fa-bars',
+            handler: 'onShowHideMenuClick'
         }, {
-            xtype: 'label',
+            xtype: 'container',
+            reference: 'title',
             html: 'Company Asset Register',
             style: {
-                'font-size': '125%',
-                'font-weight': 'bold'
+                'font-size': '110%',
+                'font-weight': 'lighter'
             }
         }, {
             xtype: 'spacer'
         }, {
-            xtype: 'label',
+            xtype: 'container',
             reference: 'displayName'
         }, {
             xtype: 'spacer',
             width: 10
         }, {
             xtype: 'button',
+            cls: 'menubutton',
             reference: 'logout',
-            text: 'Logout',
+            iconCls: 'x-fa fa-sign-out',
             handler: 'logout'
         }]
     }, {
-        xtype: 'tabcontainer',
-        reference: 'tabcontainer'
+        xtype: 'mainmenu',
+        reference: 'mainmenu',
+        docked: 'left',
+        mode: 'micro',
+        zIndex: 4,
+        plugins: 'responsive',
+        responsiveConfig: {
+            'phone': {
+                hidden: true
+            }
+        }
+    }, {
+        xtype: 'dashboard',
+        reference: 'dashboard'
+    }, {
+        xtype: 'usergrid',
+        reference: 'users'
     }]
 });

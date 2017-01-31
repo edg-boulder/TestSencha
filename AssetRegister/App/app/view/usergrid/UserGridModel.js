@@ -1,9 +1,11 @@
-/**
- * Created by dan on 1/18/17.
- */
-Ext.define('AssetRegister.view.users.UsersModel', {
+
+Ext.define('AssetRegister.view.usergrid.UserGridModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.users',
+    alias: 'viewmodel.usergrid',
+
+    requires: [
+        'AssetRegister.model.User'
+    ],
 
     stores: {
         users: {

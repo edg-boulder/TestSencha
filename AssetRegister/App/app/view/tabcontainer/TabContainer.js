@@ -7,7 +7,8 @@ Ext.define('AssetRegister.view.tabcontainer.TabContainer', {
 
     requires: [
         'AssetRegister.view.tabcontainer.TabContainerController',
-        'AssetRegister.view.tabcontainer.TabContainerModel'
+        'AssetRegister.view.tabcontainer.TabContainerModel',
+        'AssetRegister.view.usergrid.UserGrid'
     ],
 
     controller: 'tabcontainer',
@@ -35,27 +36,11 @@ Ext.define('AssetRegister.view.tabcontainer.TabContainer', {
     },
 
     items: [{
-        title: 'Home',
         historyToken: 'home',
-        iconCls: 'x-fa fa-home'
-    },{
-        xtype: 'users',
-        title: 'Users',
+        iconCls: 'x-fa fa-dashboard'
+    }, {
+        xtype: 'usergrid',
         historyToken: 'users',
         iconCls: 'x-fa fa-user'
-    },{
-        title: 'Groups',
-        historyToken: 'groups',
-        iconCls: 'x-fa fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    },{
-        title: 'Settings',
-        historyToken: 'settings',
-        iconCls: 'x-fa fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
     }]
 });

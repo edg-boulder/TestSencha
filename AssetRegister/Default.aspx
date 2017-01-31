@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
 
-    <title>AssetRegister</title>
+    <title>Asset Register</title>
 
     <!--
     <script type="text/javascript">

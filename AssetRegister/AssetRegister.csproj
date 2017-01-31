@@ -339,16 +339,25 @@
     <Content Include="App\app\Application.js" />
     <Content Include="App\app\model\Asset.js" />
     <Content Include="App\app\model\User.js" />
-    <Content Include="App\app\store\Personnel.js" />
+    <Content Include="App\app\store\Menu.js" />
+    <Content Include="App\app\view\dashboard\Dashboard.js" />
+    <Content Include="App\app\view\dashboard\DashboardController.js" />
+    <Content Include="App\app\view\dashboard\DashboardModel.js" />
     <Content Include="App\app\view\main\Main.js" />
     <Content Include="App\app\view\main\MainController.js" />
     <Content Include="App\app\view\main\MainModel.js" />
+    <Content Include="App\app\view\main\Menu.js" />
+    <Content Include="App\app\view\main\MenuController.js" />
     <Content Include="App\app\view\tabcontainer\TabContainer.js" />
     <Content Include="App\app\view\tabcontainer\TabContainerController.js" />
     <Content Include="App\app\view\tabcontainer\TabContainerModel.js" />
-    <Content Include="App\app\view\users\Users.js" />
-    <Content Include="App\app\view\users\UsersController.js" />
-    <Content Include="App\app\view\users\UsersModel.js" />
+    <Content Include="App\app\view\userform\UserForm.js" />
+    <Content Include="App\app\view\userform\UserFormController.js" />
+    <Content Include="App\app\view\userform\UserFormModel.js" />
+    <Content Include="App\app\view\usergrid\UserGrid.js" />
+    <Content Include="App\app\view\usergrid\UserGridController.js" />
+    <Content Include="App\app\view\usergrid\UserGridModel.js" />
+    <Content Include="App\app\view\widgets\Sidebar.js" />
     <Content Include="App\bootstrap.css" />
     <Content Include="App\bootstrap.js" />
     <Content Include="App\build.xml" />
@@ -6829,7 +6838,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\overrides\" />
-    <Folder Include="App\sass\src\" />
     <Folder Include="App\test\unit\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
@@ -8746,6 +8754,10 @@
     <Content Include="App\sass\var\all.scss" />
     <Content Include="App\test\project.json" />
     <Content Include="App\workspace.json" />
+    <Content Include="App\sass\var\view\widgets\Sidebar.scss" />
+    <Content Include="App\sass\src\view\main\Menu.scss" />
+    <Content Include="App\sass\src\view\widgets\Sidebar.scss" />
+    <Content Include="App\sass\src\view\main\Main.scss" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
   </ItemGroup>

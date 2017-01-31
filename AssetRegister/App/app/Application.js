@@ -9,11 +9,10 @@ Ext.define('AssetRegister.Application', {
     name: 'AssetRegister',
 
     stores: [
-        // TODO: add global / shared stores here
+        'Menu'
     ],
     
     launch: function () {
-        // TODO - Launch the application
     },
 
     onAppUpdate: function () {

@@ -1,0 +1,27 @@
+﻿$base-color: #3F51B5;
+$accent-light-color: #f48fb1;
+
+
+/*
+    Top menu / toolbar
+*/
+
+.mainHeader {
+    background-color: $neutral-dark-color;
+    color: white;
+}
+
+.menubutton {
+    height: 50px;
+    width: 50px;
+    font-size: 1.6rem;
+}
+
+
+/*
+    Button icons
+*/
+
+.x-button .x-button-icon, .x-button {
+    color: white;
+}

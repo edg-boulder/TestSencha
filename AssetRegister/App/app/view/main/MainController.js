@@ -9,7 +9,9 @@ Ext.define('AssetRegister.view.main.MainController', {
             hiddenName = Ext.get('username'),
             displayName = view.lookup('displayName');
         
-        displayName.setHtml(hiddenName.getValue());
+        if (hiddenName.getValue() != '') {
+            displayName.setHtml('Welcome, <span style="font-weight: bolder;">' + Ext.String.htmlEncode(hiddenName.getValue()) + '</span>');
+        }
     },
 
     routes: {
@@ -21,7 +23,7 @@ Ext.define('AssetRegister.view.main.MainController', {
         }
     },
 
-    handleNavigationRoute: function(type, args) {
+    /*handleNavigationRoute: function(type, args) {
         var me = this,
             view = me.getView(),
             tabpanel = view.lookup('tabcontainer'), tab, items;
@@ -37,9 +39,39 @@ Ext.define('AssetRegister.view.main.MainController', {
 
             tabpanel.setActiveItem(tab);
         }
+    },*/
+
+    handleNavigationRoute: function(type, args) {
+        var me = this,
+            view = me.getView(),
+            store = Ext.getStore('Menu'),
+            entry = store.getById(type),
+            title = me.lookup('title'),
+            downloadBtn = me.lookup('download');
+
+        me.lookup('mainmenu').setSelection(entry);
+        
+        if (!entry) {
+            return null;
+        }
+
+        view.setActiveItem(view.lookup(type));
+
+        title.setHtml(entry.get('text'));
     },
 
     logout: function () {
         document.location = 'Logout.aspx';
+    },
+
+    onShowHideMenuClick: function (button) {
+        var me = this,
+            menu = me.lookup('mainmenu');
+
+        if (menu.isHidden()) {
+            menu.show();
+        } else {
+            menu.hide();
+        }
     }
 });
