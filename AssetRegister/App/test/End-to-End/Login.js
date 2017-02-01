@@ -82,7 +82,7 @@ describe('Login', function() {
     });
     
     it('Should navigate back to the Login screen when the Login link is clicked', function() {
-         Page.loginLink()
+        Page.loginLink()
             .click()
             .wait(1000)
             .getUrl(function(url) {

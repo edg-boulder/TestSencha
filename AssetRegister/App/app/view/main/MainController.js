@@ -3,7 +3,7 @@ Ext.define('AssetRegister.view.main.MainController', {
 
     alias: 'controller.main',
 
-    init: function() {
+    init: function () {
         var me = this,
             view = me.getView(),
             hiddenName = Ext.get('username'),
@@ -41,7 +41,7 @@ Ext.define('AssetRegister.view.main.MainController', {
         }
     },*/
 
-    handleNavigationRoute: function(type, args) {
+    handleNavigationRoute: function (type, args) {
         var me = this,
             view = me.getView(),
             store = Ext.getStore('Menu'),

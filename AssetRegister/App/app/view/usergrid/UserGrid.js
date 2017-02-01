@@ -18,8 +18,17 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
     margin: 8,
 
     bind: {
-        store: '{users}'
+        store: '{Users}'
     },
+
+    items: [{
+        xtype: 'toolbar',
+        docked: 'top',
+        items: [{
+            xtype: 'textfield',
+            placeholder: 'Search'
+        }]
+    }],
 
     columns: [{
         text: 'Name',

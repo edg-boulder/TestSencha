@@ -8,7 +8,7 @@ Ext.define('AssetRegister.view.usergrid.UserGridModel', {
     ],
 
     stores: {
-        users: {
+        Users: {
             model: 'AssetRegister.model.User',
             autoLoad: true
         }

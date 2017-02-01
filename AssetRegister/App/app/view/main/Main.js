@@ -5,7 +5,8 @@ Ext.define('AssetRegister.view.main.Main', {
     requires: [
         'AssetRegister.view.main.MainController',
         'AssetRegister.view.main.MainModel',
-        'Ext.plugin.Responsive'
+        'Ext.plugin.Responsive',
+        'AssetRegister.view.usergrid.UserGrid'
     ],
 
     controller: 'main',
