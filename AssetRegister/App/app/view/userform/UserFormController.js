@@ -14,7 +14,7 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
         var me = this,
             view = me.getView(),
             values = view.getValues(),
-            record, validation;
+            record, validation, errors;
 
         record = Ext.create('AssetRegister.model.User', values);
 
@@ -30,10 +30,7 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
             });
         } else {
             // Show validation errors to the user
-
-            // TODO: Need to build a helper method that will automatically loop through a Validation object and return
-            //      errors in a nicely formatted string array. Would also need to pass in a reference to the form, so that 
-            //      it can extract the field labels from the form fields, and associate those with the errors.
+            validation.showValidationErrors(view);
         }
     },
 

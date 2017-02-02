@@ -57,6 +57,13 @@ Ext.define('AssetRegister.view.main.MainController', {
 
         childView = view.lookup(type);
 
+        // If there is a message box visible, hide it on navigation through the app.
+        // Need to store a reference to the current message box at the app level in order for this to work.
+        if (AssetRegister.app.msg) {
+            AssetRegister.app.msg.hide();
+            AssetRegister.app.msg = null;
+        }
+
         if (childView) {
             view.setActiveItem(view.lookup(type));
 

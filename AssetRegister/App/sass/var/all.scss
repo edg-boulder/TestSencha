@@ -34,14 +34,14 @@ $font-size-big: pxToRootPct(14px);
 // Ext.Panel
 // We want buttons in panel header to touch the header borders, so remove
 // the header padding and introduce $panel-header-title-padding variables.
-$panel-header-padding: 0;
-$panel-header-padding-big: 0;
+//$panel-header-padding: 0;
+//$panel-header-padding-big: 0;
 $panel-header-title-padding: dynamic(0.75em 1em);
 $panel-header-title-padding-big: dynamic(0.9rem);
 
 $panel-header-color: $panel-body-color;
 $panel-header-background-color: contrasted($panel-body-background-color, -5%);
-$panel-header-border-width: 0;
+//$panel-header-border-width: 0;
 $panel-header-font-weight: 400;
 
 // Ext.Button

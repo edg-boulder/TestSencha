@@ -6612,6 +6612,7 @@
     <Content Include="App\ext\sass\etc\extensions.js" />
     <Content Include="App\ext\sass\example\fashion.html" />
     <Content Include="App\index.html" />
+    <Content Include="App\overrides\Validation.js" />
     <Content Include="App\packages\local\theme-assetregister\.sencha\.gitignore" />
     <Content Include="App\packages\local\theme-assetregister\.sencha\package\Boot.js" />
     <Content Include="App\packages\local\theme-assetregister\.sencha\package\bootstrap-impl.xml" />
@@ -6840,7 +6841,6 @@
     <Content Include="Content\Site.css" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\overrides\" />
     <Folder Include="App\test\unit\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
