@@ -15,5 +15,16 @@ Ext.define('AssetRegister.model.User', {
     proxy: {
         type: 'rest',
         url: 'api/user'
+    },
+
+    validators: {
+        name: { 
+            type: 'presence'
+        },
+        emailAddress: [{
+            type: 'presence'
+        }, {
+            type: 'email'
+        }]
     }
 });

@@ -8,22 +8,22 @@ Ext.define('AssetRegister.store.Menu', {
     data: [{
         id: 'dashboard',
         xtype: 'dashboard',
-        text: 'Asset Register Dashboard',
+        text: 'Asset Register - Dashboard',
         icon: 'dashboard'
     }, {
-        id: 'assets',
+        id: 'asset',
         xtype: 'panel',
-        text: 'Assets',
+        text: 'Asset Register - Assets',
         icon: 'bell-o'
     }, {
-        id: 'users',
+        id: 'user',
         xtype: 'usergrid',
-        text: 'Users',
+        text: 'Asset Register - Users',
         icon: 'users'
     }, {
         id: 'about',
         xtype: 'panel',
-        text: 'About',
+        text: 'Asset Register - About',
         icon: 'info-circle'
     }]
 });

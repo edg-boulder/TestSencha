@@ -1,6 +1,3 @@
-/*
- * This is is imported by virtue of "sass.var" in "app.json".
- */
 
 $enable-font-awesome: dynamic(true);
 
@@ -48,13 +45,17 @@ $panel-header-border-width: 0;
 $panel-header-font-weight: 400;
 
 // Ext.Button
+$button-color: #2196f3;
+$button-icon-color: #2196f3;
 $button-line-height: 1.1em;
+$button-icon-font-size: 1.3em;
 $button-icon-horizontal-spacing: 0.4em;
 $button-icon-horizontal-spacing-big: 0.4em;
 $button-padding: 1em;
 $button-padding-big: 0.825em 1.4em;
 
 // Ext.Toolbar
+$toolbar-background-color: #F5F5F5; //#757575;
 $toolbar-horizontal-spacing: 4px;
 $toolbar-horizontal-spacing-big: 4px;
 $toolbar-padding: 0px;
@@ -70,6 +71,8 @@ $dataview-background-color: null;
 $listitem-selected-color: contrasted($base-light-color, -25%);
 $listitem-selected-background-color: contrasted($base-color, 5%);
 $listitem-background-color: contrasted($background-color, -5%);
+//$listitem-hovered-background-color: #757575;
+$listitem-pressed-background-color: #616161;
 $listitem-alt-background-color: contrasted($listitem-background-color, 2%);
 $listitem-line-height: 1.35em;
 

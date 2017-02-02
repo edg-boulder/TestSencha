@@ -351,6 +351,9 @@
     <Content Include="App\app\view\tabcontainer\TabContainer.js" />
     <Content Include="App\app\view\tabcontainer\TabContainerController.js" />
     <Content Include="App\app\view\tabcontainer\TabContainerModel.js" />
+    <Content Include="App\app\view\usercontainer\UserContainer.js" />
+    <Content Include="App\app\view\usercontainer\UserContainerController.js" />
+    <Content Include="App\app\view\usercontainer\UserContainerModel.js" />
     <Content Include="App\app\view\userform\UserForm.js" />
     <Content Include="App\app\view\userform\UserFormController.js" />
     <Content Include="App\app\view\userform\UserFormModel.js" />

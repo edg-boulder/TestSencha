@@ -15,32 +15,38 @@ Ext.define('AssetRegister.view.userform.UserForm', {
 
     controller: 'userform',
 
-    title: 'User Details',
     bodyPadding: 10,
+
+    defaults: {
+        labelAlign: 'top'
+    },
+
     items: [{
         xtype: 'toolbar',
-        docked: 'bottom',
+        docked: 'top',
         items: [{
-            text: 'Save',
-            iconCls: 'x-fa fa-disk'
+            iconCls: 'x-fa fa-chevron-left',
+            text: 'Back',
+            handler: 'onBack'
         }, {
-            text: 'Delete',
-            iconCls: 'x-fa fa-delete'
+            iconCls: 'x-fa fa-floppy-o',
+            text: 'Save',
+            handler: 'onSave'
+        }, {
+            iconCls: 'x-fa fa-trash-o',
+            text: 'Delete'
         }]
     }, {
         xtype: 'textfield',
         label: 'Name',
-        labelAlign: 'top',
         name: 'name'
     }, {
-        xtype: 'textfield',
+        xtype: 'emailfield',
         label: 'Email Address',
-        labelAlign: 'top',
         name: 'emailAddress'
     }, {
         xtype: 'checkboxfield',
         label: 'Admin User?',
-        labelAlign: 'top',
         name: 'admin'
     }]
 });

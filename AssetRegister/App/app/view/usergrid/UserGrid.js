@@ -4,7 +4,8 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
 
     requires: [
         'AssetRegister.view.usergrid.UserGridModel',
-		'AssetRegister.view.usergrid.UserGridController'
+		'AssetRegister.view.usergrid.UserGridController',
+        'Ext.grid.plugin.Editable'
     ],
 
     xtype: 'usergrid',
@@ -15,20 +16,13 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
 
     controller: 'usergrid',
 
-    margin: 8,
+    plugins: [
+        'grideditable'
+    ],
 
     bind: {
         store: '{Users}'
     },
-
-    items: [{
-        xtype: 'toolbar',
-        docked: 'top',
-        items: [{
-            xtype: 'textfield',
-            placeholder: 'Search'
-        }]
-    }],
 
     columns: [{
         text: 'Name',
@@ -40,7 +34,17 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
         dataIndex: 'emailAddress'
     }],
 
+    items: [{
+        xtype: 'toolbar',
+        docked: 'top',
+        items: [{
+            xtype: 'button',
+            iconCls: 'x-fa fa-plus',
+            text: 'Add New'
+        }]
+    }],
+
     listeners: {
-        selectionchange: 'onSelectionChange'
+        itemtap: 'onItemTap'
     }
 });

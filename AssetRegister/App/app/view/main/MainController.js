@@ -47,7 +47,7 @@ Ext.define('AssetRegister.view.main.MainController', {
             store = Ext.getStore('Menu'),
             entry = store.getById(type),
             title = me.lookup('title'),
-            downloadBtn = me.lookup('download');
+            childView, childController, recordId;
 
         me.lookup('mainmenu').setSelection(entry);
         
@@ -55,7 +55,24 @@ Ext.define('AssetRegister.view.main.MainController', {
             return null;
         }
 
-        view.setActiveItem(view.lookup(type));
+        childView = view.lookup(type);
+
+        if (childView) {
+            view.setActiveItem(view.lookup(type));
+
+            childController = childView.getController();
+
+            if (args) {
+                recordId = Ext.Number.from(args.substring(1));
+                childController.loadRecord(recordId);
+            } else {
+                // If the view being shown (e.g. Users) has a main view (e.g. the Grid of Users), show it
+                if (childController.showMainView) {
+                    childController.showMainView();
+                }
+            }
+        }
+
 
         title.setHtml(entry.get('text'));
     },
