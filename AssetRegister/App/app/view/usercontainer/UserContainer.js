@@ -14,7 +14,9 @@ Ext.define('AssetRegister.view.usercontainer.UserContainer',{
         type: 'usercontainer-usercontainer'
     },
 
-    margin: 8,
+    margin: 16,
+
+    cls: 'appview',
 
     layout: 'card',
 

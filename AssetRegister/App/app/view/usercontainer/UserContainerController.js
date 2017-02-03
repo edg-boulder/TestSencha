@@ -10,7 +10,9 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
             store = me.getStore('Users'),
             record;
 
-        if (!store.isLoaded()) {
+        if (recordId == -1) {
+            me.setRecord(Ext.create('AssetRegister.model.User'));
+        } else if (!store.isLoaded()) {
             me.recordId = recordId;
         } else {
             record = store.getById(recordId);
@@ -36,18 +38,20 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
     setRecord: function (record) {
         var me = this,
             view = me.getView(),
-            form = view.down('userform');
+            form = view.down('userform'),
+            fieldset;
 
         if (form == null) {
-            console.log('pushing form');
-            view.add({
+            form = view.add({
                 xtype: 'userform',
                 record: record
             });
-        } else {
-            console.log('reusing form');
-            form.setRecord(record);
         }
+
+        form.reset();
+        form.setRecord(record);
+        fieldset = form.down('fieldset');
+        fieldset.show();
 
         view.setActiveItem(view.items.length - 1);
     },

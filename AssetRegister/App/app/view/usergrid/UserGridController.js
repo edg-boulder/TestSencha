@@ -8,5 +8,11 @@ Ext.define('AssetRegister.view.usergrid.UserGridController', {
 
         me.redirectTo(record);
         grid.deselectAll();
+    },
+
+    onAdd: function () {
+        var me = this;
+
+        me.redirectTo('user/-1');
     }
 });

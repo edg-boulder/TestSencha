@@ -55,7 +55,7 @@ $button-padding: 1em;
 $button-padding-big: 0.825em 1.4em;
 
 // Ext.Toolbar
-$toolbar-background-color: #F5F5F5; //#757575;
+$toolbar-background-color: #FFFFFF; //#F5F5F5;
 $toolbar-horizontal-spacing: 4px;
 $toolbar-horizontal-spacing-big: 4px;
 $toolbar-padding: 0px;
@@ -94,7 +94,13 @@ $gridrow-selected-color: #000;
 $grid-group-header-background-color: #5C6BC0;
 
 // Ext.grid.column.Column
-$gridcolumn-background-color: #616161;
+$gridcolumn-background-color: #BDBDBD;
 $gridcolumn-border-color: transparent;
-$gridcolumn-color: white;
-$gridcolumn-sort-icon-color: white;
+$gridcolumn-font-weight: bold;
+//$gridcolumn-color: white;
+//$gridcolumn-sort-icon-color: white;
+
+
+.x-inner.x-panel-inner.x-layout-card {
+    background-color: #EEEEEE;
+}

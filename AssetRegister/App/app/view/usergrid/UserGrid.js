@@ -24,6 +24,8 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
         store: '{Users}'
     },
 
+    disableSelection: true,
+
     columns: [{
         text: 'Name',
         flex: 1,
@@ -40,7 +42,8 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
         items: [{
             xtype: 'button',
             iconCls: 'x-fa fa-plus',
-            text: 'Add New'
+            text: 'Add New',
+            handler: 'onAdd'
         }]
     }],
 

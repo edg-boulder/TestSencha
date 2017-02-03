@@ -12,7 +12,10 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerModel', {
             autoLoad: true,
             listeners: {
                 load: 'onStoreLoad'
-            }
+            },
+            sorters: [{
+                property: 'name'
+            }]
         }
     }
 });

@@ -26,6 +26,7 @@ namespace AssetRegister
         public string password { get; set; }
         public string passwordSalt { get; set; }
         public bool admin { get; set; }
+        public string apiKey { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asset> Assets { get; set; }

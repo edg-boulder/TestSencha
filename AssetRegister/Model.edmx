@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AssetRegisterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AssetRegisterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asset">
           <Key>
             <PropertyRef Name="id" />
@@ -34,6 +34,7 @@
           <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="passwordSalt" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
+          <Property Name="apiKey" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -72,8 +73,7 @@
             <End Role="Asset" EntitySet="Asset" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AssetRegisterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -110,6 +110,7 @@
           <Property Name="passwordSalt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="admin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Assets" Relationship="Self.FK_Asset_User" FromRole="User" ToRole="Asset" />
+          <Property Name="apiKey" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -178,6 +179,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="AssetRegisterModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="apiKey" ColumnName="apiKey" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />

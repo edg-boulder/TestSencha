@@ -48,9 +48,9 @@ namespace AssetRegister
                     errorText += "<li>Password is required.</li>";
                 }
 
-                if (password.Value.Length < 7)
+                if (password.Value.Length < 8)
                 {
-                    errorText += "<li>Password must be 7 or more characters in length.</li>";
+                    errorText += "<li>Password must be 8 or more characters in length.</li>";
                 }
 
                 if (password.Value != confirmpassword.Value)

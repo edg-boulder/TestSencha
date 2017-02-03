@@ -14,6 +14,8 @@ Ext.define('AssetRegister.view.main.Main', {
 
     layout: 'card',
 
+    cls: 'main',
+
     items: [{
         xtype: 'toolbar',
         cls: 'mainHeader',

@@ -8,13 +8,23 @@ Ext.define('AssetRegister.model.User', {
     }, {
         name: 'password'
     }, {
+        name: 'confirmPassword'
+    }, {
         name: 'admin',
         type: 'boolean'
+    }, {
+        name: 'apiKey'
     }],
+
+    identifier: 'sequential',
 
     proxy: {
         type: 'rest',
-        url: 'api/user'
+        url: 'api/user',
+        writer: {
+            type: 'json',
+            writeAllFields: true
+        }
     },
 
     validators: {
@@ -25,6 +35,9 @@ Ext.define('AssetRegister.model.User', {
             type: 'presence'
         }, {
             type: 'email'
-        }]
+        }],
+        password: {
+            type: 'password'
+        }
     }
 });
