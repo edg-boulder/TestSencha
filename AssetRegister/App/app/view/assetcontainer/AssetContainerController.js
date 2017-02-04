@@ -1,17 +1,17 @@
-Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
+Ext.define('AssetRegister.view.assetcontainer.AssetContainerController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.usercontainer',
-    
+    alias: 'controller.assetcontainer',
+  
     recordId: null,
 
     loadRecord: function (recordId) {
         var me = this,
             view = me.getView(),
-            store = me.getStore('Users'),
+            store = me.getStore('Assets'),
             record;
 
         if (recordId == -1) {
-            me.setRecord(Ext.create('AssetRegister.model.User'));
+            me.setRecord(Ext.create('AssetRegister.model.Asset'));
         } else if (!store.isLoaded()) {
             me.recordId = recordId;
         } else {
@@ -38,25 +38,18 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
     setRecord: function (record) {
         var me = this,
             view = me.getView(),
-            form = view.down('userform'),
+            form = view.down('assetform'),
             fieldset;
 
         if (form == null) {
             form = view.add({
-                xtype: 'userform',
+                xtype: 'assetform',
                 record: record
             });
         }
 
         form.reset();
         form.setRecord(record);
-        fieldset = form.lookup('setPassword');
-
-        if (record.phantom) {
-            fieldset.show();
-        } else {
-            fieldset.hide();
-        }
 
         view.setActiveItem(view.items.length - 1);
     },

@@ -101,6 +101,10 @@ $gridcolumn-font-weight: bold;
 //$gridcolumn-sort-icon-color: white;
 
 
-.x-inner.x-panel-inner.x-layout-card {
+.x-inner.x-panel-inner.x-layout-card, .x-container.dashboard {
     background-color: #EEEEEE;
+}
+
+.x-container.dashboard .x-innerhtml {
+    height: 100%;
 }

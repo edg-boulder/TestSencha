@@ -42,20 +42,25 @@ Ext.define('AssetRegister.view.userform.UserForm', {
             handler: 'onDelete'
         }]
     }, {
-        xtype: 'textfield',
-        label: 'Name',
-        name: 'name'
-    }, {
-        xtype: 'emailfield',
-        label: 'Email Address',
-        name: 'emailAddress'
-    }, {
-        xtype: 'checkboxfield',
-        label: 'Admin User?',
-        name: 'admin'
+        xtype: 'fieldset',
+        title: 'User Details',
+        items: [{
+            xtype: 'textfield',
+            label: 'Name',
+            name: 'name'
+        }, {
+            xtype: 'emailfield',
+            label: 'Email Address',
+            name: 'emailAddress'
+        }, {
+            xtype: 'checkboxfield',
+            label: 'Admin User?',
+            name: 'admin'
+        }]
     }, {
         xtype: 'fieldset',
         title: 'Set Password',
+        reference: 'setPassword',
         hidden: true,
         items: [{
             xtype: 'passwordfield',
@@ -67,9 +72,13 @@ Ext.define('AssetRegister.view.userform.UserForm', {
             name: 'confirmPassword'
         }]
     }, {
-        xtype: 'textfield',
-        label: 'API Key',
-        name: 'apiKey',
-        readOnly: true
+        xtype: 'fieldset',
+        title: 'API',
+        items: [{
+            xtype: 'textfield',
+            label: 'API Key',
+            name: 'apiKey',
+            readOnly: true
+        }]
     }]
 });

@@ -78,6 +78,7 @@ namespace AssetRegister
             config.Formatters.Add(new JQueryMvcFormUrlEncodedFormatter());
 
             var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
             json.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
             json.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }

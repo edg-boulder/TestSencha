@@ -1,7 +1,6 @@
-
-Ext.define('AssetRegister.view.userform.UserFormController', {
+Ext.define('AssetRegister.view.assetform.AssetFormController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.userform',
+    alias: 'controller.assetform',
 
     record: null,
 
@@ -40,16 +39,12 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
     onSaveCallback: function (record, operation, success, phantom) {
         var me = this,
             view = me.getView(),
-            container = view.up('usercontainer'),
-            store = container.getViewModel().getStore('Users');
+            container = view.up('assetcontainer'),
+            store = container.getViewModel().getStore('Assets');
 
         Ext.Viewport.setMasked(false);
 
         if (success) {
-            // Clear the password from the client-side record
-            record.set('password', null);
-            record.set('confirmPassword', null);
-
             record.endEdit();
 
             // If this is a new record, add it to the store
@@ -81,25 +76,13 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
     goBack () {
         var me = this;
 
-        me.redirectTo('user');
-    },
-
-    onChangePassword: function () {
-        var me = this,
-            view = me.getView(),
-            fieldset = view.lookup('setPassword');
-
-        if (fieldset.isVisible()) {
-            fieldset.hide();
-        } else {
-            fieldset.show();
-        }
+        me.redirectTo('asset');
     },
 
     onDelete: function () {
         var me = this;
 
-        Ext.Msg.confirm('Confirm deletion', 'Are you sure you want to permanently delete this user?', me.onConfirmDelete, me);
+        Ext.Msg.confirm('Confirm deletion', 'Are you sure you want to permanently delete this asset?', me.onConfirmDelete, me);
     },
 
     onConfirmDelete: function (buttonText) {

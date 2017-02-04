@@ -65,6 +65,9 @@ Ext.define('AssetRegister.view.main.Main', {
         xtype: 'dashboard',
         reference: 'dashboard'
     }, {
+        xtype: 'assetcontainer',
+        reference: 'asset'
+    }, {
         xtype: 'usercontainer',
         reference: 'user'
     }]

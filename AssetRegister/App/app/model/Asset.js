@@ -1,13 +1,15 @@
 Ext.define('AssetRegister.model.Asset', {
     extend: 'Ext.data.Model',
 
-    fields: [],
+    fields: [{
+        name: 'name'
+    }],
 
     identifier: 'sequential',
 
     proxy: {
         type: 'rest',
-        url: 'api/asset',
+        url: 'api/asset/GetAssets',
         writer: {
             type: 'json',
             writeAllFields: true

@@ -15,11 +15,7 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
     },
 
     controller: 'usergrid',
-
-    plugins: [
-        'grideditable'
-    ],
-
+    
     bind: {
         store: '{Users}'
     },
@@ -35,11 +31,18 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
         flex: 1,
         dataIndex: 'emailAddress'
     }, {
+        xtype: 'booleancolumn',
+        width: 110,
+        text: 'Admin',
+        trueText: 'Yes',
+        falseText: 'No',
+        dataIndex: 'admin'
+    }, {
         xtype: 'datecolumn',
         text: 'Last Login',
-        width: 240,
+        width: 200,
         dataIndex: 'lastLogin',
-        format: 'Y-m-d @ h:ia O'
+        format: 'Y-m-d @ h:ia'
     }, {
         xtype: 'datecolumn',
         text: 'Last Access',

@@ -1,0 +1,12 @@
+﻿
+.dashboardOuter {
+    font-size: 500%; 
+    height: 100%; 
+    text-align: center;
+}
+
+.dashboardInner { 
+    position: relative; 
+    top: 50%; 
+    transform: translateY(-50%);
+}

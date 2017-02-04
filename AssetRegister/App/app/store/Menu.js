@@ -14,7 +14,7 @@ Ext.define('AssetRegister.store.Menu', {
         id: 'asset',
         xtype: 'panel',
         text: 'Asset Register - Assets',
-        icon: 'bell-o'
+        icon: 'cubes'
     }, {
         id: 'user',
         xtype: 'usergrid',

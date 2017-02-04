@@ -9,9 +9,9 @@ Ext.define('AssetRegister.view.usercontainer.UserContainer',{
 
     xtype: 'usercontainer',
 
-    controller: 'usercontainer-usercontainer',
+    controller: 'usercontainer',
     viewModel: {
-        type: 'usercontainer-usercontainer'
+        type: 'usercontainer'
     },
 
     margin: 16,

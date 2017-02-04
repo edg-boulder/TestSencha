@@ -1,14 +1,14 @@
-Ext.define('AssetRegister.view.usercontainer.UserContainerModel', {
+Ext.define('AssetRegister.view.assetcontainer.AssetContainerModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.usercontainer',
+    alias: 'viewmodel.assetcontainer',
 
     requires: [
-        'AssetRegister.model.User'
+        'AssetRegister.model.Asset'
     ],
 
     stores: {
-        Users: {
-            model: 'AssetRegister.model.User',
+        Assets: {
+            model: 'AssetRegister.model.Asset',
             autoLoad: true,
             listeners: {
                 load: 'onStoreLoad'
@@ -18,4 +18,5 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerModel', {
             }]
         }
     }
+
 });
