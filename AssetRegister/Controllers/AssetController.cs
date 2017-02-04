@@ -12,6 +12,7 @@ using AssetRegister;
 
 namespace AssetRegister.Controllers
 {
+    [Authorize]
     public class AssetController : ApiController
     {
         private AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
@@ -19,10 +20,12 @@ namespace AssetRegister.Controllers
         // GET: api/Asset
         public IQueryable<Asset> GetAssets()
         {
-            return db.Assets;
+            int userId = Security.GetUserID();
+
+            return db.Assets.Where(asset => asset.userId == userId);
         }
 
-        // GET: api/Asset/5
+        /*// GET: api/Asset/5
         [ResponseType(typeof(Asset))]
         public IHttpActionResult GetAsset(int id)
         {
@@ -33,7 +36,7 @@ namespace AssetRegister.Controllers
             }
 
             return Ok(asset);
-        }
+        }*/
 
         // PUT: api/Asset/5
         [ResponseType(typeof(void))]

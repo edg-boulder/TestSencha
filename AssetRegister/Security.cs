@@ -47,5 +47,15 @@ namespace AssetRegister
 
             return false;
         }
+
+        public static string GenerateApiKey()
+        {
+            int length = 32;
+            Random random = new Random();
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }

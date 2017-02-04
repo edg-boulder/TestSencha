@@ -8762,6 +8762,7 @@
     <Content Include="App\sass\src\view\main\Menu.scss" />
     <Content Include="App\sass\src\view\widgets\Sidebar.scss" />
     <Content Include="App\sass\src\view\main\Main.scss" />
+    <Content Include="Database\AssetRegister.bak" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
   </ItemGroup>

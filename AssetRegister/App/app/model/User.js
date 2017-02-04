@@ -14,6 +14,12 @@ Ext.define('AssetRegister.model.User', {
         type: 'boolean'
     }, {
         name: 'apiKey'
+    }, {
+        name: 'lastLogin',
+        type: 'date'
+    }, {
+        name: 'lastAccess',
+        type: 'date'
     }],
 
     identifier: 'sequential',

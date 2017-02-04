@@ -57,6 +57,9 @@ namespace AssetRegister
                             int userId = user.id;
                             string emailAddress = user.emailAddress;
 
+                            user.lastLogin = DateTime.Now;
+                            entities.SaveChanges();
+
                             FormsAuthenticationTicket authTicket = new
                                 FormsAuthenticationTicket(1,
                                 userId.ToString(),
@@ -78,6 +81,40 @@ namespace AssetRegister
                             errors.InnerHtml = "<p>You entered an invalid password. Please try again.</p>";
                         }
                     }
+                }
+            }
+            else if (Request.Params["apiKey"] != null)
+            {
+                // API Key has been specified, so erase and restore a fresh set of data for that user
+
+                string apiKey = Request.Params["apiKey"];
+                AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
+
+                User user = db.Users.FirstOrDefault(u => u.apiKey == apiKey);
+
+                if (user != null)
+                {
+                    // Delete existing data associated with the user
+                    db.Assets.RemoveRange(db.Assets.Where(a => a.userId == user.id));
+                    db.SaveChanges();
+
+                    // Add new data for the user - copy from the base set of data
+                    var assets = db.Assets.Where(a => a.userId == null);
+
+                    foreach (var asset in assets)
+                    {
+                        db.Assets.Add(new Asset()
+                        {
+                            assetTypeId = asset.assetTypeId,
+                            cost = asset.cost,
+                            description = asset.description,
+                            name = asset.name,
+                            purchaseDate = asset.purchaseDate,
+                            userId = user.id
+                        });
+                    }
+
+                    db.SaveChanges();
                 }
             }
         }

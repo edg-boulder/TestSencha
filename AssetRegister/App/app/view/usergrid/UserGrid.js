@@ -34,6 +34,18 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
         text: 'Email',
         flex: 1,
         dataIndex: 'emailAddress'
+    }, {
+        xtype: 'datecolumn',
+        text: 'Last Login',
+        width: 240,
+        dataIndex: 'lastLogin',
+        format: 'Y-m-d @ h:ia O'
+    }, {
+        xtype: 'datecolumn',
+        text: 'Last Access',
+        width: 200,
+        dataIndex: 'lastAccess',
+        format: 'Y-m-d @ h:ia'
     }],
 
     items: [{

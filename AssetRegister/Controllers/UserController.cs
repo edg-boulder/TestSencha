@@ -13,12 +13,12 @@ using System.Security.Cryptography;
 
 namespace AssetRegister.Controllers
 {
+    [Authorize]
     public class UserController : ApiController
     {
         private AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
 
         // GET: api/User
-        [Authorize]
         public dynamic GetUsers()
         {
             if (!Security.IsAdmin())
@@ -33,7 +33,9 @@ namespace AssetRegister.Controllers
                             oUser.name,
                             oUser.emailAddress,
                             oUser.admin,
-                            oUser.apiKey
+                            oUser.apiKey,
+                            oUser.lastAccess,
+                            oUser.lastLogin
                         };
 
             return users.AsEnumerable();
@@ -53,7 +55,6 @@ namespace AssetRegister.Controllers
         }*/
 
         // PUT: api/User/5
-        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)
         {
@@ -109,7 +110,6 @@ namespace AssetRegister.Controllers
         }
 
         // POST: api/User
-        [Authorize]
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
@@ -135,21 +135,17 @@ namespace AssetRegister.Controllers
 
             user.password = encryptedPassword;
             user.passwordSalt = crypto.Salt;
-
-            var key = new byte[32];
-            using (var generator = RandomNumberGenerator.Create())
-                generator.GetBytes(key);
-
-            user.apiKey = Convert.ToBase64String(key);
+            
+            user.apiKey = Security.GenerateApiKey();
 
             db.Users.Add(user);
             db.SaveChanges();
             
-            return CreatedAtRoute("DefaultApi", new { id = user.id, apiKey = user.apiKey }, new { id = user.id });
+            return CreatedAtRoute("DefaultApi", new { id = user.id, apiKey = user.apiKey }, new { id = user.id, apiKey = user.apiKey });
         }
+        
 
         // DELETE: api/User/5
-        [Authorize]
         [ResponseType(typeof(User))]
         public IHttpActionResult DeleteUser(int id)
         {

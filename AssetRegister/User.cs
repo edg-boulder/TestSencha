@@ -27,6 +27,8 @@ namespace AssetRegister
         public string passwordSalt { get; set; }
         public bool admin { get; set; }
         public string apiKey { get; set; }
+        public Nullable<System.DateTime> lastLogin { get; set; }
+        public Nullable<System.DateTime> lastAccess { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asset> Assets { get; set; }

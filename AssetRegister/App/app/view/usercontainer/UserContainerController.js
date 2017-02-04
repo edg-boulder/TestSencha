@@ -50,8 +50,11 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
 
         form.reset();
         form.setRecord(record);
-        fieldset = form.down('fieldset');
-        fieldset.show();
+
+        if (record.phantom) {
+            fieldset = form.down('fieldset');
+            fieldset.show();
+        }
 
         view.setActiveItem(view.items.length - 1);
     },

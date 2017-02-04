@@ -17,6 +17,13 @@ namespace AssetRegister
             }
             else
             {
+                AssetRegisterEntities db = new AssetRegisterEntities();
+                int userId = Security.GetUserID();
+                User user = db.Users.FirstOrDefault(u => u.id == userId);
+
+                user.lastAccess = DateTime.Now;
+                db.SaveChanges();
+
                 username.Value = Security.GetUserName();
                 admin.Value = Security.IsAdmin().ToString().ToLower();
             }

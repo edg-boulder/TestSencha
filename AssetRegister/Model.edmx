@@ -35,6 +35,8 @@
           <Property Name="passwordSalt" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
           <Property Name="apiKey" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lastLogin" Type="datetime" />
+          <Property Name="lastAccess" Type="datetime" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -111,6 +113,8 @@
           <Property Name="admin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Assets" Relationship="Self.FK_Asset_User" FromRole="User" ToRole="Asset" />
           <Property Name="apiKey" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastLogin" Type="DateTime" Precision="3" />
+          <Property Name="lastAccess" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -179,6 +183,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="AssetRegisterModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="lastAccess" ColumnName="lastAccess" />
+                <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
                 <ScalarProperty Name="apiKey" ColumnName="apiKey" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
