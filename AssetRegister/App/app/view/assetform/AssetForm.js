@@ -43,6 +43,16 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
             xtype: 'textfield',
             label: 'Name',
             name: 'name'
+        }, {
+            xtype: 'selectfield',
+            label: 'Type',
+            name: 'assetTypeId',
+            autoSelect: false,
+            bind: {
+                store: '{AssetTypes}'
+            },
+            displayField: 'name',
+            valueField: 'id'
         }]
     }]
 });

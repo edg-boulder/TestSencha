@@ -18,11 +18,25 @@ namespace AssetRegister.Controllers
         private AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
 
         // GET: api/Asset
-        public IQueryable<Asset> GetAssets()
+        public dynamic GetAssets()
         {
             int userId = Security.GetUserID();
 
-            return db.Assets.Where(asset => asset.userId == userId);
+            var data = from asset in db.Assets
+                       where asset.userId == userId
+                       select new
+                       {
+                           asset.id,
+                           asset.name,
+                           asset.assetTypeId,
+                           assetTypeName = asset.AssetType.name,
+                           asset.cost,
+                           asset.quantity,
+                           asset.purchaseDate,
+                           asset.description
+                       };
+
+            return data;
         }
 
         public dynamic GetDashboardStats()
@@ -32,19 +46,18 @@ namespace AssetRegister.Controllers
             List<Asset> assets = db.Assets.Include("AssetType").Where(asset => asset.userId == userId).ToList();
 
             // Get summary info
-            int totalCount = assets.Count();
-            decimal totalValue = assets.Sum(asset => asset.cost);
+            int totalCount = assets.Sum(asset => asset.quantity);
+            decimal totalValue = assets.Sum(asset => asset.cost * asset.quantity);
 
             // Get total costs separated by category
             var categorySpend = from asset in assets
-                              //join assetType in AssetType on asset.assetTypeId equals assetType.id
-                              group asset by new { asset.assetTypeId, asset.AssetType.name } into grouping
-                              select new
-                              {
-                                  assetTypeId = grouping.Key.assetTypeId,
-                                  assetTypeName = grouping.Key.name,
-                                  totalValue = grouping.Sum(a => a.cost)
-                              };
+                                group asset by new { asset.assetTypeId, asset.AssetType.name } into grouping
+                                select new
+                                {
+                                    assetTypeId = grouping.Key.assetTypeId,
+                                    assetTypeName = grouping.Key.name,
+                                    totalValue = grouping.Sum(a => a.cost * a.quantity)
+                                };
 
             // Get total costs by month for the past 6 months
             var now = DateTime.Now;
@@ -64,7 +77,7 @@ namespace AssetRegister.Controllers
                     },
                     (p, g) => new {
                         date = p.month.ToString() + '/' + p.year.ToString(),
-                        totalValue = g.Sum(a => a.cost) / 1000
+                        totalValue = g.Sum(a => a.cost * a.quantity) / 1000
                     });
 
             return new

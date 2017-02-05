@@ -13,6 +13,7 @@
           <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="description" Type="varchar(max)" Nullable="false" />
           <Property Name="cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
           <Property Name="assetTypeId" Type="int" Nullable="false" />
           <Property Name="userId" Type="int" />
           <Property Name="purchaseDate" Type="date" Nullable="false" />
@@ -92,6 +93,7 @@
           <Property Name="purchaseDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="AssetType" Relationship="Self.FK_Asset_AssetType" FromRole="Asset" ToRole="AssetType" />
           <NavigationProperty Name="User" Relationship="Self.FK_Asset_User" FromRole="Asset" ToRole="User" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="AssetType">
           <Key>
@@ -162,6 +164,7 @@
           <EntitySetMapping Name="Assets">
             <EntityTypeMapping TypeName="AssetRegisterModel.Asset">
               <MappingFragment StoreEntitySet="Asset">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />

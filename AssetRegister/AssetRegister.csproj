@@ -339,6 +339,7 @@
     <Content Include="App\app\Application.js" />
     <Content Include="App\app\data\validator\Password.js" />
     <Content Include="App\app\model\Asset.js" />
+    <Content Include="App\app\model\AssetType.js" />
     <Content Include="App\app\model\User.js" />
     <Content Include="App\app\store\Menu.js" />
     <Content Include="App\app\view\assetcontainer\AssetContainer.js" />

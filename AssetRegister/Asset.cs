@@ -21,6 +21,7 @@ namespace AssetRegister
         public int assetTypeId { get; set; }
         public Nullable<int> userId { get; set; }
         public System.DateTime purchaseDate { get; set; }
+        public int quantity { get; set; }
     
         public virtual AssetType AssetType { get; set; }
         public virtual User User { get; set; }

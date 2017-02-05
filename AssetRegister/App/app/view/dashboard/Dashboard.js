@@ -8,6 +8,9 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
         'AssetRegister.view.dashboard.DashboardController',
         'AssetRegister.view.dashboard.DashboardModel',
         'Ext.chart.series.Pie',
+        'Ext.chart.series.Bar',
+        'Ext.chart.axis.Category',
+        'Ext.chart.axis.Numeric',
         'Ext.chart.interactions.ItemHighlight',
         'Ext.chart.interactions.Rotate'
     ],
@@ -23,7 +26,8 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
 
     items: [{
         xtype: 'container',
-        flex: 1,
+        flex: 0.4,
+        minHeight: 150,
         layout: 'hbox',
         cls: 'dashboard',
         items: [{
@@ -51,7 +55,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
         }]
     }, {
         xtype: 'container',
-        flex: 1,
+        flex: 0.6,
         layout: 'hbox',
         cls: 'dashboard',
         items: [{
@@ -62,19 +66,19 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             items: [{
                 xtype: 'polar',
                 bind: '{CategorySpend}',
-                interactions: ['rotate', 'itemhighlight'],
+                interactions: ['rotate'],
                 legend: {
                     hidden: true
                 },
                 background: '#78909C',
-                innerPadding: 5,
+                innerPadding: 20,
                 series: [{
                     type: 'pie',
                     xField: 'totalValue',
                     label: {
                         field: 'assetTypeName',
                         color: '#FFFFFF',
-                        fontSize: 20
+                        fontSize: 16
                     },
                     donut: 30,
                     highlightCfg: {
@@ -97,13 +101,8 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             items: [{
                 xtype: 'cartesian',
                 bind: '{MonthlySpend}',
-                /*insetPadding: {
-                    top: 50,
-                    bottom: 10,
-                    left: 0,
-                    right: 10
-                },*/
                 background: '#039BE5',
+                insetPadding: 30,
                 axes: [{
                     type: 'numeric',
                     position: 'left',

@@ -107,6 +107,7 @@ namespace AssetRegister
                         {
                             assetTypeId = asset.assetTypeId,
                             cost = asset.cost,
+                            quantity = asset.quantity,
                             description = asset.description,
                             name = asset.name,
                             purchaseDate = asset.purchaseDate,

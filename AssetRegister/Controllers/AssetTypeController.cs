@@ -34,7 +34,7 @@ namespace AssetRegister.Controllers
 
             return Ok(assetType);
         }
-
+        /*
         // PUT: api/AssetType/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAssetType(int id, AssetType assetType)
@@ -99,7 +99,7 @@ namespace AssetRegister.Controllers
             db.SaveChanges();
 
             return Ok(assetType);
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {

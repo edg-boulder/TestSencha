@@ -3,7 +3,8 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerModel', {
     alias: 'viewmodel.assetcontainer',
 
     requires: [
-        'AssetRegister.model.Asset'
+        'AssetRegister.model.Asset',
+        'AssetRegister.model.AssetType'
     ],
 
     stores: {
