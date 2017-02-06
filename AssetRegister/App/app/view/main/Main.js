@@ -6,6 +6,7 @@ Ext.define('AssetRegister.view.main.Main', {
         'AssetRegister.view.main.MainController',
         'AssetRegister.view.main.MainModel',
         'Ext.plugin.Responsive',
+        'Ext.Toast',
         'AssetRegister.view.usergrid.UserGrid'
     ],
 

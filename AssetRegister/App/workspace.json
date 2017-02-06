@@ -17,6 +17,11 @@
     },
     "name": "AssetRegister",
     "tests": {
-        "path": "test/project.json"
+        "path": "test/project.json",
+        "browser": {
+            "farms": []
+        },
+        "archiveRoot": "/assetregister",
+        "archiveServer": "http://localhost:1903"
     }
 }

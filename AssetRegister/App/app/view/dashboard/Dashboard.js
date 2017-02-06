@@ -26,7 +26,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
 
     items: [{
         xtype: 'container',
-        flex: 0.4,
+        flex: 0.5,
         minHeight: 150,
         layout: 'hbox',
         cls: 'dashboard',
@@ -57,7 +57,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
         }]
     }, {
         xtype: 'container',
-        flex: 0.6,
+        flex: 0.5,
         layout: 'hbox',
         cls: 'dashboard',
         items: [{

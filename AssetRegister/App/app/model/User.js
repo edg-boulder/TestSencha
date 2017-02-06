@@ -1,6 +1,10 @@
 Ext.define('AssetRegister.model.User', {
     extend: 'Ext.data.Model',
 
+    requires: [
+        'Ext.data.validator.Presence'
+    ],
+
     fields: [{
         name: 'name'
     }, {

@@ -39,6 +39,16 @@ describe("Asset.js", function() {
         },
         costField: function() {
             return ST.field('assetform numberfield[label=Per Unit Cost]');
+        },
+        
+        /*
+            Dashboard panels
+        */
+        assetCountPanel: function() {
+            return ST.component('container#assetCount');  
+        },
+        assetValuePanel: function() {
+            return ST.component('container#assetValue');  
         }
     };
     
@@ -84,19 +94,32 @@ describe("Asset.js", function() {
         Page.form();
     });
     
-    it('Changing the Asset quantity and saving should update the grid and dashboard totals', function() {
+    it('Changing the Asset quantity and saving should update the grid', function() {
         Page.quantityField()
-            .setValue(5);
+            .setValue(4);
             
         Page.saveButton()
             .click(10, 10);
-            
-        
-        // TODO
         
         Page.grid()
+            .wait(1000)
             .rowWith('name', 'Statesman 10-piece conference table and chairs')
-            .cellWith('quantity', 5);
+            .cellWith('dataIndex', 'quantity').textLike('4');
+    });
+    
+    it('After changing the Asset quantity, the Dashboard value should also be updated', function() {
+        Page.menu()
+            .item('dashboard')
+            .click();
+            
+        Page.assetCountPanel()
+            .text('303 assets');
+    });
+    
+    it('Should return to the Asset view when clicking the Menu item', function() {
+        Page.menu()
+            .item('asset')
+            .click(); 
     });
     
     it('Should show the Asset form when clicking the Add New button', function() {
@@ -104,7 +127,7 @@ describe("Asset.js", function() {
             .click();
     });
     
-    it('Date field should default to the current date', function() {
+    xit('Date field should default to the current date', function() {
         
         // TODO
         
@@ -112,7 +135,7 @@ describe("Asset.js", function() {
             .expect('value').toEqual(new Date());
     });
     
-    it('Other form fields should be blank for new Asset records', function() {
+    xit('Other form fields should be blank for new Asset records', function(done) {
         
         // TODO
         
