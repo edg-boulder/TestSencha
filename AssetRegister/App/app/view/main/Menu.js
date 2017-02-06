@@ -13,11 +13,13 @@
 
     items: [{
         xtype: 'list',
+        width: '50px',
         reference: 'menu',
-        scrollable: 'y',
+        itemId: 'menu',
+        scrollable: false,
         store: 'Menu',
         flex: 1,
-        itemTpl: '<i class="fa fa-{icon}"></i>{text}',
+        itemTpl: '<i class="fa fa-{icon}"></i>',
         itemConfig: {
             ui: 'large flat dark'
         },

@@ -32,6 +32,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
         cls: 'dashboard',
         items: [{
             xtype: 'container',
+            itemId: 'assetCount',
             margin: '0 8 8 0',
             style: {
                 background: '#7986CB',
@@ -43,6 +44,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             }
         }, {
             xtype: 'container',
+            itemId: 'assetValue',
             margin: '0 0 8 8',
             style: {
                 background: '#9575CD',
@@ -50,7 +52,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             },
             flex: 1,
             bind: {
-                html: '<div class="dashboardOuter"><div class="dashboardInner"><span style="font-weight: bold;">{summary.totalValue:currency("$", 0)}</span> <span style="font-size: 50%"> total value</span></div></div>'
+                html: '<div class="dashboardOuter"><div class="dashboardInner"><span style="font-weight: bold;">{summary.totalValue:currency("$", 0)}</span> <span style="font-size: 50%">total value</span></div></div>'
             }
         }]
     }, {
@@ -67,6 +69,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
                 xtype: 'polar',
                 bind: '{CategorySpend}',
                 interactions: ['rotate'],
+                itemId: 'assetCategorySpend',
                 legend: {
                     hidden: true
                 },
@@ -102,6 +105,7 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
                 xtype: 'cartesian',
                 bind: '{MonthlySpend}',
                 background: '#039BE5',
+                itemId: 'assetMonthlySpend',
                 insetPadding: 30,
                 axes: [{
                     type: 'numeric',

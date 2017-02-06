@@ -9,7 +9,7 @@
             "sandbox": true,
             "directory": "End-to-End",
             "name": "End-to-End",
-            "page": "http://172.16.143.195/AssetRegister/Login.aspx"
+            "page": "http://localhost/AssetRegister/Login.aspx?apiKey=joch330hbos97sr0nsimx2yeu6qj36ce"
         }
     ]
 }

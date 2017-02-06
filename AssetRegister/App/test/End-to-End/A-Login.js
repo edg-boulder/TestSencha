@@ -1,39 +1,46 @@
-var Page = {
-    emailField: function() {
-        return ST.element('@email');  
-    },
-    passwordField: function() {
-        return ST.element('@password');  
-    },
-    submitButton: function() {
-        return ST.element('@submit');
-    },
-    resetButton: function() {
-        return ST.element('@reset');  
-    },
-    registrationLink: function() {
-        return ST.element('@register');  
-    },
-    loginLink: function() {
-        return ST.element('@login');  
-    },
-    errorText: function() {
-        return ST.element('@errors');
-    }
-};
-
 describe('Login', function() {
+    var Page = {
+        /*
+            Login screen elements
+        */
+        emailField: function() {
+            return ST.element('@email');  
+        },
+        passwordField: function() {
+            return ST.element('@password');  
+        },
+        submitButton: function() {
+            return ST.element('@submit');
+        },
+        resetButton: function() {
+            return ST.element('@reset');  
+        },
+        registrationLink: function() {
+            return ST.element('@register');  
+        },
+        loginLink: function() {
+            return ST.element('@login');  
+        },
+        errorText: function() {
+            return ST.element('@errors');
+        }
+    };
+
     /**
      * Before each test spec, we reset the state of the form, by clicking the form's Reset button
      */
     beforeEach(function() {
         Page.resetButton()
-            .click();
+            .click(10, 10);
+    });
+    
+    it('Screenshot should match baseline', function() {
+        ST.screenshot('Login');
     });
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
-            .click(20, 20);
+            .click(10, 10);
         
         Page.errorText()
             .textLike('Email address is required')
@@ -50,7 +57,7 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .click();
+            .click(20, 20);
         
         Page.errorText()
             .textLike('User with this email address not found');
@@ -87,6 +94,23 @@ describe('Login', function() {
             .wait(1000)
             .getUrl(function(url) {
                 expect(url).toContain('Login.aspx'); 
+            });
+    });
+    
+    it('Should login when valid login credentials have been provided and redirect to the app', function() {
+        Page.emailField()
+            .focus()
+            .type('testaccount@sencha.com')
+        
+        Page.passwordField()
+            .focus()
+            .type('senchasencha');
+            
+        Page.submitButton()
+            .click(20, 20)
+            .wait(1000)
+            .getUrl(function(url) {
+                expect(url).toContain('Default.aspx'); 
             });
     });
 });

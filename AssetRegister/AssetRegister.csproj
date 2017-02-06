@@ -7011,7 +7011,11 @@
     <Content Include="App\sass\example\fashion.html" />
     <Content Include="App\sass\example\render.js" />
     <Content Include="App\sass\example\theme.html" />
-    <Content Include="App\test\End-to-End\Login.js" />
+    <Content Include="App\test\End-to-End\A-Login.js" />
+    <Content Include="App\test\End-to-End\B-Dashboard.js" />
+    <Content Include="App\test\End-to-End\C-Asset.js" />
+    <Content Include="App\test\End-to-End\D-User.js" />
+    <Content Include="App\test\End-to-End\E-Logout.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
