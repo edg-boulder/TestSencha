@@ -31,10 +31,6 @@ describe('Login', function() {
      */
     beforeEach(function() {
         Page.resetButton()
-            .and(function(button) {
-                debugger;
-            })
-            .focus()
             .click(10, 10);
     });
     
@@ -44,7 +40,6 @@ describe('Login', function() {
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
-            .focus()
             .click(10, 10);
         
         Page.errorText()
@@ -62,7 +57,6 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .focus()
             .click(20, 20);
         
         Page.errorText()
@@ -79,7 +73,6 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .focus()
             .click(20, 20)
         
         Page.errorText()
