@@ -31,12 +31,14 @@ Ext.define('AssetRegister.view.assetgrid.AssetGrid',{
     }, {
         xtype: 'numbercolumn', 
         format: '0,000',
+        align: 'right',
         width: 150,
         dataIndex: 'quantity',
         text: 'Quantity'
     }, {
         xtype: 'numbercolumn',
-        renderer: Ext.util.Format.usMoney,
+        format: '$0,000.00',
+        align: 'right',
         width: 150,
         dataIndex: 'cost',
         text: 'Unit Cost'

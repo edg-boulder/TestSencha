@@ -17,6 +17,14 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerModel', {
             sorters: [{
                 property: 'name'
             }]
+        },
+
+        AssetTypes: {
+            model: 'AssetRegister.model.AssetType',
+            autoLoad: true,
+            sorters: [{
+                property: 'name'
+            }]
         }
     }
 

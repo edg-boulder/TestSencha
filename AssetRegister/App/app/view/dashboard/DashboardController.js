@@ -14,7 +14,7 @@ Ext.define('AssetRegister.view.dashboard.DashboardController', {
 
         // Get data for all 4 of the dashboard panels
         Ext.Ajax.request({
-            url: 'api/Asset/GetDashboardStats'
+            url: 'api/AssetStats'
         }).then(function (response) {
             var data = Ext.decode(response.responseText);
 

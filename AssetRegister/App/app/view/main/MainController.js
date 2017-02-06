@@ -7,10 +7,18 @@ Ext.define('AssetRegister.view.main.MainController', {
         var me = this,
             view = me.getView(),
             hiddenName = Ext.get('username'),
-            displayName = view.lookup('displayName');
+            adminUser = Ext.get('admin').getValue() == 'true',
+            displayName = view.lookup('displayName'),
+            menuStore = Ext.getStore('Menu');
         
+        // Extract the user's display name from the hidden field in the ASPX page, and show this in the Ext JS toolbar
         if (hiddenName.getValue() != '') {
             displayName.setHtml('Welcome, <span style="font-weight: bolder;">' + Ext.String.htmlEncode(hiddenName.getValue()) + '</span>');
+        }
+
+        // If this isn't an admin user, hide the Users section by removing the User entry in the Menu's Store
+        if (!adminUser) {
+            menuStore.remove(menuStore.getById('user'))
         }
     },
 

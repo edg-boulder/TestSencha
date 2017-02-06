@@ -11,19 +11,22 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
             values = view.getValues(),
             record = view.getRecord(),
             phantom = record.phantom,
-            validation, errors;
+            validation, errors, dummyRecord;
 
-        record.beginEdit();
-        record.set(values);
+        dummyRecord = Ext.create('AssetRegister.model.User', values);
 
-        validation = record.getValidation();
+        validation = dummyRecord.getValidation();
+
+        delete values['id'];
 
         if (validation.isValid()) {
-            // Apply form values to original record and submit it to the server. May still fail on the server.
             Ext.Viewport.setMasked({
                 xtype: 'loadmask',
                 message: 'Saving...'
             });
+
+            record.beginEdit();
+            record.set(values);
 
             record.save({
                 callback: function (record, operation, success) {
@@ -33,7 +36,6 @@ Ext.define('AssetRegister.view.userform.UserFormController', {
         } else {
             // Show validation errors to the user
             validation.showValidationErrors(view);
-            record.cancelEdit();
         }
     },
 

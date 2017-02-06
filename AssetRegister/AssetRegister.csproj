@@ -253,6 +253,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\AssetStatsController.cs" />
     <Compile Include="Controllers\AssetTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Default.aspx.cs">

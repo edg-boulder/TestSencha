@@ -39,58 +39,6 @@ namespace AssetRegister.Controllers
             return data;
         }
 
-        public dynamic GetDashboardStats()
-        {
-            int userId = Security.GetUserID();
-
-            List<Asset> assets = db.Assets.Include("AssetType").Where(asset => asset.userId == userId).ToList();
-
-            // Get summary info
-            int totalCount = assets.Sum(asset => asset.quantity);
-            decimal totalValue = assets.Sum(asset => asset.cost * asset.quantity);
-
-            // Get total costs separated by category
-            var categorySpend = from asset in assets
-                                group asset by new { asset.assetTypeId, asset.AssetType.name } into grouping
-                                select new
-                                {
-                                    assetTypeId = grouping.Key.assetTypeId,
-                                    assetTypeName = grouping.Key.name,
-                                    totalValue = grouping.Sum(a => a.cost * a.quantity)
-                                };
-
-            // Get total costs by month for the past 6 months
-            var now = DateTime.Now;
-            now = now.Date.AddDays(1 - now.Day);
-            var months = Enumerable.Range(-5, 6)
-                .Select(x => new {
-                    year = now.AddMonths(x).Year,
-                    month = now.AddMonths(x).Month
-                });
-
-            var monthlySpend =
-                months.GroupJoin(assets,
-                    m => new { month = m.month, year = m.year },
-                    asset => new {
-                        month = asset.purchaseDate.Month,
-                        year = asset.purchaseDate.Year
-                    },
-                    (p, g) => new {
-                        date = p.month.ToString() + '/' + p.year.ToString(),
-                        totalValue = g.Sum(a => a.cost * a.quantity) / 1000
-                    });
-
-            return new
-            {
-                summary = new {
-                    totalCount = totalCount,
-                    totalValue = totalValue
-                },
-                categorySpend = categorySpend,
-                monthlySpend = monthlySpend
-            };
-        }
-
         /*// GET: api/Asset/5
         [ResponseType(typeof(Asset))]
         public IHttpActionResult GetAsset(int id)
@@ -118,11 +66,30 @@ namespace AssetRegister.Controllers
                 return BadRequest();
             }
 
-            db.Entry(asset).State = EntityState.Modified;
+            //db.Entry(asset).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                int userId = Security.GetUserID();
+
+                var dbAsset = db.Assets.Find(id);
+
+                // If the user is trying to update an asset not belonging to them, throw unauthorized exception
+                if (dbAsset.userId != userId)
+                {
+                    return StatusCode(HttpStatusCode.Unauthorized);
+                }
+                else
+                {
+                    dbAsset.assetTypeId = asset.assetTypeId;
+                    dbAsset.cost = asset.cost;
+                    dbAsset.description = asset.description;
+                    dbAsset.name = asset.name;
+                    dbAsset.purchaseDate = asset.purchaseDate;
+                    dbAsset.quantity = asset.quantity;
+                    
+                    db.SaveChanges();
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -136,7 +103,7 @@ namespace AssetRegister.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.OK);
         }
 
         // POST: api/Asset
@@ -148,6 +115,10 @@ namespace AssetRegister.Controllers
                 return BadRequest(ModelState);
             }
 
+            int userId = Security.GetUserID();
+
+            asset.userId = userId;
+
             db.Assets.Add(asset);
             db.SaveChanges();
 
@@ -158,10 +129,18 @@ namespace AssetRegister.Controllers
         [ResponseType(typeof(Asset))]
         public IHttpActionResult DeleteAsset(int id)
         {
+            int userId = Security.GetUserID();
+
             Asset asset = db.Assets.Find(id);
+
             if (asset == null)
             {
                 return NotFound();
+            }
+
+            if (asset.userId != userId)
+            {
+                return Unauthorized(null);
             }
 
             db.Assets.Remove(asset);

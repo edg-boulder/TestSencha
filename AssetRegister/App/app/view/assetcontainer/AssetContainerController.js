@@ -11,7 +11,10 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerController', {
             record;
 
         if (recordId == -1) {
-            me.setRecord(Ext.create('AssetRegister.model.Asset'));
+            me.setRecord(Ext.create('AssetRegister.model.Asset', {
+                assetTypeId: undefined,
+                purchaseDate: new Date()
+            }));
         } else if (!store.isLoaded()) {
             me.recordId = recordId;
         } else {
@@ -39,6 +42,7 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerController', {
         var me = this,
             view = me.getView(),
             form = view.down('assetform'),
+            deleteButton,
             fieldset;
 
         if (form == null) {
@@ -50,6 +54,14 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerController', {
 
         form.reset();
         form.setRecord(record);
+
+        deleteButton = form.down('button[text=Delete]');
+
+        if (record.phantom) {
+            deleteButton.hide();
+        } else {
+            deleteButton.show();
+        }
 
         view.setActiveItem(view.items.length - 1);
     },

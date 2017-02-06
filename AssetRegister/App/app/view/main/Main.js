@@ -1,6 +1,6 @@
 Ext.define('AssetRegister.view.main.Main', {
     extend: 'Ext.Panel',
-    xtype: 'app-main',
+    xtype: 'main',
 
     requires: [
         'AssetRegister.view.main.MainController',

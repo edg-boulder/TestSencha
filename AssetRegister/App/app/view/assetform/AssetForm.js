@@ -44,6 +44,11 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
             label: 'Name',
             name: 'name'
         }, {
+            xtype: 'textareafield',
+            label: 'Description',
+            name: 'description',
+            maxRows: 5
+        }, {
             xtype: 'selectfield',
             label: 'Type',
             name: 'assetTypeId',
@@ -53,6 +58,28 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
             },
             displayField: 'name',
             valueField: 'id'
+        }]
+    }, {
+        xtype: 'fieldset',
+        title: 'Purchase',
+        items: [{
+            xtype: 'datepickerfield',
+            label: 'Date',
+            name: 'purchaseDate'
+        }, {
+            xtype: 'numberfield',
+            label: 'Quantity',
+            name: 'quantity',
+            stepValue: 1,
+            minValue: 0,
+            maxValue: 10000000
+        }, {
+            xtype: 'numberfield',
+            label: 'Per Unit Cost',
+            name: 'cost',
+            stepValue: 0.01,
+            minValue: 0,
+            maxValue: 10000000
         }]
     }]
 });
