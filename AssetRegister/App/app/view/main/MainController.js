@@ -88,7 +88,6 @@ Ext.define('AssetRegister.view.main.MainController', {
             }
         }
 
-
         title.setHtml(entry.get('text'));
     },
 

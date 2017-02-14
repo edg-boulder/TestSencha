@@ -18,6 +18,9 @@ describe("Asset.js", function() {
         addButton: function() {
             return ST.button('assetgrid button[text=Add New]');
         },
+        messageBox: function() {
+            return ST.component('messagebox');
+        },
         
         /*
             Form fields
@@ -127,7 +130,19 @@ describe("Asset.js", function() {
             .click();
     });
     
-    xit('Date field should default to the current date', function() {
+    it('Saving an Asset without entering values should show validation message and prevent save', function() {
+        Page.saveButton()
+            .click();
+            
+        Page.messageBox()
+            .visible()
+            .textLike('Validation errors')
+            .textLike('Name Must be present')
+            .textLike('Description Must be present')
+            .textLike('Type Must be present');
+    });
+    
+    xit('Date field should default to the current date', function(done) {
         
         // TODO
         

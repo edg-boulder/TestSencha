@@ -38,6 +38,9 @@
           <Property Name="apiKey" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="lastLogin" Type="datetime" />
           <Property Name="lastAccess" Type="datetime" />
+          <Property Name="emailVerified" Type="bit" Nullable="false" />
+          <Property Name="resetPasswordKey" Type="varchar" MaxLength="255" />
+          <Property Name="resetPasswordDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -117,6 +120,9 @@
           <Property Name="apiKey" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="lastLogin" Type="DateTime" Precision="3" />
           <Property Name="lastAccess" Type="DateTime" Precision="3" />
+          <Property Name="emailVerified" Type="Boolean" Nullable="false" />
+          <Property Name="resetPasswordKey" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="resetPasswordDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -186,6 +192,9 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="AssetRegisterModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="resetPasswordDate" ColumnName="resetPasswordDate" />
+                <ScalarProperty Name="resetPasswordKey" ColumnName="resetPasswordKey" />
+                <ScalarProperty Name="emailVerified" ColumnName="emailVerified" />
                 <ScalarProperty Name="lastAccess" ColumnName="lastAccess" />
                 <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
                 <ScalarProperty Name="apiKey" ColumnName="apiKey" />

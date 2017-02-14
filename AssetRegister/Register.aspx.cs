@@ -77,11 +77,14 @@ namespace AssetRegister
                         name = name.Value.Trim(),
                         password = crypto.Compute(password.Value),
                         passwordSalt = crypto.Salt,
+                        emailVerified = false,
                         apiKey = Security.GenerateApiKey()
                     };
 
                     entities.Users.Add(user);
                     entities.SaveChanges();
+
+                    Security.GenerateSampleData(user.apiKey);
 
                     success.InnerHtml = "<p><span style='font-weight: bold;'>Your user account has been created!</span> You will be able to <a href='Login.aspx'>login</a> using your Email address and chosen password.</p>" +
                         "<p>In order to reset data in the app via an API call, you will require the following unique API Key. <span style='font-weight: bold;'>Please take a note of this now:</span></p>" + 

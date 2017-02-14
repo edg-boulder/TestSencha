@@ -4,7 +4,12 @@
     "coverageFilters": [],
     "scenarios": [
         {
-            "libs": [],
+            "libs": [
+                {
+                    "disabled": false,
+                    "path": "new/library.js"
+                }
+            ],
             "coverageFilters": [],
             "sandbox": true,
             "directory": "End-to-End",

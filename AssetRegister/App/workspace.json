@@ -1,6 +1,5 @@
 {
     "apps": [
-        "packages/local/theme-assetregister/.sencha/temp/Themer"
     ],
     "frameworks": {
         "ext": {

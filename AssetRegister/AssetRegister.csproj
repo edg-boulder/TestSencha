@@ -77,6 +77,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=8.0.5.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.8.0.5\lib\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.CSharp.HTTP.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=79219bf4e5ecaaca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.CSharp.HTTP.Client.3.0.0\lib\SendGrid.CSharp.HTTP.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleCrypto, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
       <Private>True</Private>
@@ -94,6 +106,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
       <Private>True</Private>
@@ -108,9 +121,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -262,6 +272,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -6850,162 +6867,6 @@
     <Content Include="App\packages\charts\charts\test\specs\draw\sprite\Sprite.js" />
     <Content Include="App\packages\charts\charts\test\specs\draw\sprite\Text.js" />
     <Content Include="App\packages\charts\charts\test\specs\draw\Surface.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\.gitignore" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\Boot.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\bootstrap-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\build-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\find-cmd-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\init-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\js-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\Microloader.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\plugin.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\refresh-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\resources-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\sass-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\slice-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\sub-builds.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\Boot.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\bootstrap-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\build-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\cordova-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\find-cmd-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\init-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\js-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\Microloader.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\packager-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\page-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\phonegap-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\refresh-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\resolve-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\resources-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\sass-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\slice-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\watch-impl.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\Application.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\DummyText.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\model\RowExpanderModel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\model\State.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\model\Task.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\BreadCrumbStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\GridStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\GroupGridStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\RowExpanderStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\StateStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\store\TreeStore.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\Templates.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\view\Highlighter.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\view\main\MainController.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\view\tree\TreeListController.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\view\tree\TreeListModel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\bootstrap.css" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\bootstrap.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\build.xml" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\overrides\button\Button.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\Base.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\buttons\BasicButtons.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\buttons\ButtonGroup.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\buttons\MenuButtons.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\buttons\SplitButtons.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\buttons\ToggleButtons.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\CheckboxRadio.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\ComboBox.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\Date.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\DisplayField.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\FieldSet.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\FileField.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\HtmlEditor.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\Number.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\Slider.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\TagField.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\form\TextField.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\BasicGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\CheckboxlGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\GroupedGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\RowEditorGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\RowExpanderGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\grid\SpreadsheetGrid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\layout\AccordionLayout.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\layout\BorderLayout.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\link\Link.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\loadmask\LoadMask.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\main\Main.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\menu\BasicMenu.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\panels\BasicPanels.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\panels\FramedPanels.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\picker\ColorPicker.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\progressbar\ProgressBar.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\resizer\Resizer.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tab\BasicTab.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tab\FrameTabs.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tab\PlainTabs.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\toolbars\BasicToolbar.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\toolbars\BreadCrumbToolbar.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\toolbars\Overflow.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tooltip\ToolTip.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tree\BasicTree.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tree\TreeList.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\tree\TreeWithArrows.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\src\view\window\BasicWindow.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\index.html" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Base.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\BaseBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\buttons\Buttons.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\buttons\ButtonsBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Carousel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Checkbox.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\CheckboxBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\DatePicker.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\DatePickerBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\FieldSet.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Radio.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\RadioBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Select.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\SelectBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Slider.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Spinner.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\SpinnerBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\TextField.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\TextFieldBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\fields\Toggle.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Grid\Grid.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Grid\GridBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\list\List.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\list\ListBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\main\Main.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\panel\AnchoredPanel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\panel\BigFormPanel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\panel\BigPanel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\panel\FormPanel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\panel\Panel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Progress.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\tab\Tab.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\tab\TabBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\Titlebar.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\toolbar\Toolbar.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\toolbar\ToolbarBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\ToolTip.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\tree\Tree.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\tree\TreeBig.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\src\view\tree\TreeModel.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\overrides\dom\Element.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\images\bart-icon.png" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\images\homer-icon.png" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\images\lisa-icon.png" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\images\marge-icon.png" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\javascripts\CSSUtilities.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\bootstrap.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\custom.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\example.css" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\fashion.html" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\render.js" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\theme.html" />
-    <Content Include="App\packages\local\theme-assetregister\build.xml" />
-    <Content Include="App\packages\local\theme-assetregister\overrides\init.js" />
-    <Content Include="App\packages\local\theme-assetregister\sass\example\custom.js" />
-    <Content Include="App\packages\local\theme-assetregister\sass\example\fashion.html" />
-    <Content Include="App\packages\local\theme-assetregister\sass\example\render.js" />
-    <Content Include="App\packages\local\theme-assetregister\sass\example\theme.html" />
     <Content Include="App\sass\example\bootstrap.css" />
     <Content Include="App\sass\example\bootstrap.js" />
     <Content Include="App\sass\example\custom.js" />
@@ -7024,7 +6885,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\login.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -7082,6 +6945,7 @@
     <Content Include="Content\Site.css" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\packages\local\" />
     <Folder Include="App\test\unit\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
@@ -8905,86 +8769,6 @@
     <Content Include="App\ext\sass\etc\font-ios-variables.scss" />
     <Content Include="App\ext\sass\etc\font-pictos-variables.scss" />
     <Content Include="App\ext\version.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\build.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\codegen.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\sencha.cfg" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\package\testing.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\app.defaults.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\build.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\codegen.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\cordova.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\development.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\development.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\ext.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\native.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\native.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\package.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\package.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\phonegap.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\production.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\production.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\sencha.cfg" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\testing.defaults.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\.sencha\app\testing.properties" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\app\view\main\variables.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\sass\etc\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\sass\src\Component.scss" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\sass\src\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\sass\src\view\main\Main.scss" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\classic\sass\var\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\data\grid-tree-data.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\data\row-expander-data.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern.jsonp" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Bold.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-BoldItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Heavy.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-HeavyItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Light.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-LightItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Medium.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-MediumItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Regular.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-RegularItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Semibold.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-SemiboldItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-Ultrathin.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\resources\fonts\san-francisco\SF-UI-Text-UltrathinItalic.otf" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\sass\etc\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\sass\src\Component.scss" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\sass\src\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\modern\sass\var\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\resources\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\config.rb" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\etc\all.scss" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\bootstrap.json" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\example\bootstrap.jsonp" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\temp\Themer\sass\var\all.scss" />
-    <Content Include="App\packages\local\theme-assetregister\.sencha\themer\theme.db" />
-    <Content Include="App\packages\local\theme-assetregister\classic\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\classic\sass\var\sencha-themer-defaults.scss" />
-    <Content Include="App\packages\local\theme-assetregister\examples\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\licenses\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\modern\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\modern\sass\save\Ext\Toolbar.scss" />
-    <Content Include="App\packages\local\theme-assetregister\modern\sass\var\sencha-themer-defaults.scss" />
-    <Content Include="App\packages\local\theme-assetregister\overrides\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\package.json" />
-    <Content Include="App\packages\local\theme-assetregister\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\resources\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\sass\config.rb" />
-    <Content Include="App\packages\local\theme-assetregister\sass\etc\all.scss" />
-    <Content Include="App\packages\local\theme-assetregister\sass\etc\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\sass\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\sass\src\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\sass\var\Readme.md" />
-    <Content Include="App\packages\local\theme-assetregister\src\Readme.md" />
     <Content Include="App\Readme.md" />
     <Content Include="App\resources\Readme.md" />
     <Content Include="App\sass\config.rb" />

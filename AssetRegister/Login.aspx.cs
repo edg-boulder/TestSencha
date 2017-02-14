@@ -52,7 +52,11 @@ namespace AssetRegister
                     }
                     else
                     {
-                        if (user.password == crypto.Compute(password.Value, user.passwordSalt))
+                        if (!user.emailVerified)
+                        {
+                            errors.InnerHtml = "<p>Please activate your account by clicking the activation link in the Registration Confirmation email.</p>";
+                        }
+                        else if (user.password == crypto.Compute(password.Value, user.passwordSalt))
                         {
                             int userId = user.id;
                             string emailAddress = user.emailAddress;
@@ -86,37 +90,9 @@ namespace AssetRegister
             else if (Request.Params["apiKey"] != null)
             {
                 // API Key has been specified, so erase and restore a fresh set of data for that user
-
                 string apiKey = Request.Params["apiKey"];
-                AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };
 
-                User user = db.Users.FirstOrDefault(u => u.apiKey == apiKey);
-
-                if (user != null)
-                {
-                    // Delete existing data associated with the user
-                    db.Assets.RemoveRange(db.Assets.Where(a => a.userId == user.id));
-                    db.SaveChanges();
-
-                    // Add new data for the user - copy from the base set of data
-                    var assets = db.Assets.Where(a => a.userId == null);
-
-                    foreach (var asset in assets)
-                    {
-                        db.Assets.Add(new Asset()
-                        {
-                            assetTypeId = asset.assetTypeId,
-                            cost = asset.cost,
-                            quantity = asset.quantity,
-                            description = asset.description,
-                            name = asset.name,
-                            purchaseDate = asset.purchaseDate,
-                            userId = user.id
-                        });
-                    }
-
-                    db.SaveChanges();
-                }
+                Security.GenerateSampleData(apiKey);
             }
         }
     }

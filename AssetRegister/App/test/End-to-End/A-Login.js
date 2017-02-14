@@ -34,7 +34,7 @@ describe('Login', function() {
             .click(10, 10);
     });
     
-    it('Screenshot should match baseline', function() {
+    it('Screenshot should match baseline', function(done) {
         ST.screenshot('Login');
     });
     
@@ -107,7 +107,6 @@ describe('Login', function() {
             .type('senchasencha');
             
         Page.submitButton()
-            .focus()
             .click(20, 20)
             .wait(1000)
             .getUrl(function(url) {

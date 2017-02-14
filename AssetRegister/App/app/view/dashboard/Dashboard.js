@@ -65,6 +65,9 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             margin: '8 8 0 0',
             flex: 1,
             layout: 'fit',
+            style: {
+                background: '#78909C'
+            },
             items: [{
                 xtype: 'polar',
                 bind: '{CategorySpend}',
@@ -101,6 +104,9 @@ Ext.define('AssetRegister.view.dashboard.Dashboard',{
             margin: '8 0 0 8',
             flex: 1,
             layout: 'fit',
+            style: {
+                background: '#039BE5'
+            },
             items: [{
                 xtype: 'cartesian',
                 bind: '{MonthlySpend}',

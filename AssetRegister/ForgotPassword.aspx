@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="AssetRegister.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="AssetRegister.ForgotPassword" %>
 
 <!DOCTYPE html>
 <html >
@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
 
-  <title>Asset Register - Login</title>
+  <title>Asset Register - Forgot Password</title>
   
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,27 +14,23 @@
 <body>
 <hgroup>
   <h1>Asset Register</h1>
-  <h3>Login</h3>
+  <h3>Forgot Password</h3>
 </hgroup>
 <form runat="server">
   <div class="group">
     <input runat="server" type="email" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
     <label>Email</label>
   </div>
-  <div class="group">
-    <input runat="server" type="password" name="password" id="password"><span class="highlight"></span><span class="bar"></span>
-    <label>Password</label>
-  </div>
-  <button type="submit" class="button buttonBlue" id="submit">Login
-    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-  </button>
-  <button type="button" class="button buttonBlue" id="reset">Reset
+  <button type="submit" class="button buttonBlue" id="submit">Reset Password
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
   <div class="group" style="text-align: center;">
-      <a href="Register.aspx" id="register">Register</a> | <a href="ForgotPassword.aspx" id="forgotpassword">Forgot Password</a>
+      <a href="Login.aspx" id="login">Login</a> | <a href="Register.aspx" id="register">Register</a>
   </div>
   <div class="errorgroup" id="errors" runat="server">
+
+  </div>
+  <div id="success" runat="server">
 
   </div>
 </form>
