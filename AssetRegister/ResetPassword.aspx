@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="AssetRegister.Register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="AssetRegister.ResetPassword" %>
 
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
 
-  <title>Asset Register - Registration</title>
+  <title>Asset Register - Reset Password</title>
   
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,18 +14,10 @@
 <body>
 <hgroup>
   <h1>Asset Register</h1>
-  <h3>Registration</h3>
+  <h3>Reset Password</h3>
 </hgroup>
 <form runat="server">
-  <div id="register" runat="server" style="width: 100%;">
-      <div class="group">
-        <input runat="server" type="text" name="name" id="name"><span class="highlight"></span><span class="bar"></span>
-        <label>Full Name</label>
-      </div>
-      <div class="group">
-        <input runat="server" type="email" name="email" id="email"><span class="highlight"></span><span class="bar"></span>
-        <label>Email</label>
-      </div>
+  <div id="reset" runat="server" style="width: 100%;">
       <div class="group">
         <input runat="server" type="password" name="password" id="password"><span class="highlight"></span><span class="bar"></span>
         <label>Password</label>
@@ -34,16 +26,14 @@
         <input runat="server" type="password" name="confirmpassword" id="confirmpassword"><span class="highlight"></span><span class="bar"></span>
         <label>Confirm Password</label>
       </div>
-      <button type="submit" class="button buttonBlue" id="submit">Register
-        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-      </button>
-      <button type="button" class="button buttonBlue" id="reset">Reset
+      <button type="submit" class="button buttonBlue" id="submit">Reset Password
         <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
       </button>
   </div>
   <div class="group" style="text-align: center;">
-      <a href="Login.aspx" id="login">Login</a> | <a href="ForgotPassword.aspx">Forgot Password</a>
+    <a href="Login.aspx" id="login">Login</a> | <a href="Register.aspx" id="register">Register</a>
   </div>
+  
   <div class="errorgroup" id="errors" runat="server">
 
   </div>

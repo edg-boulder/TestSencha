@@ -113,14 +113,50 @@ namespace AssetRegister
 
                 db.SaveChanges();
 
+                string url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(0, HttpContext.Current.Request.Url.AbsoluteUri.LastIndexOf("/"));
+                url += String.Format("/ResetPassword.aspx?key={0}", resetApiKey);
+
+                string message = String.Format("<h3>Asset Register - Forgot Password</h3><p>To reset your password, please click on the unique link below. This link will expire after 24 hours.</p><p><a href='{0}'>{0}</a></p>", url);
+
                 Email from = new Email("donotreply-assetregister@sencha.com");
                 string subject = "Asset Register - Forgot Password";
                 Email to = new Email(user.emailAddress);
-                Content content = new Content("text/html", "<h3>Asset Register - Forgot Password</h3><p>To reset your password, please click on the unique link below.</p>");
+                Content content = new Content("text/html", message);
                 Mail mail = new Mail(from, subject, to, content);
 
                 dynamic response = await sendgrid.client.mail.send.post(requestBody: mail.Get());
             }
-        } 
+        }
+
+        public static async Task SendVerificationEmail(string emailAddress)
+        {
+            AssetRegisterEntities db = new AssetRegisterEntities();
+
+            var user = db.Users.FirstOrDefault(u => u.emailAddress == emailAddress);
+
+            if (user != null)
+            {
+                string apiKey = Environment.GetEnvironmentVariable("SendGridApiKey", EnvironmentVariableTarget.Machine);
+                dynamic sendgrid = new SendGridAPIClient(apiKey);
+
+                string confirmEmailKey = Security.GenerateApiKey();
+                user.confirmEmailKey = confirmEmailKey;
+
+                db.SaveChanges();
+
+                string url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(0, HttpContext.Current.Request.Url.AbsoluteUri.LastIndexOf("/"));
+                url += String.Format("/ConfirmEmail.aspx?key={0}", confirmEmailKey);
+
+                string message = String.Format("<h3>Asset Register - Activate Your Account</h3><p>In order to activate your account for Asset Register, please click on the unique link below to confirm your email address.</p><p><a href='{0}'>{0}</a></p>", url);
+
+                Email from = new Email("donotreply-assetregister@sencha.com");
+                string subject = "Asset Register - Activate Your Account";
+                Email to = new Email(user.emailAddress);
+                Content content = new Content("text/html", message);
+                Mail mail = new Mail(from, subject, to, content);
+
+                dynamic response = await sendgrid.client.mail.send.post(requestBody: mail.Get());
+            }
+        }
     }
 }

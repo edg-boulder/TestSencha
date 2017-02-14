@@ -262,6 +262,13 @@
     <Compile Include="AssetType.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmEmail.aspx.cs">
+      <DependentUpon>ConfirmEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmEmail.aspx.designer.cs">
+      <DependentUpon>ConfirmEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\AssetStatsController.cs" />
     <Compile Include="Controllers\AssetTypeController.cs" />
@@ -324,6 +331,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Security.cs" />
@@ -6879,6 +6893,7 @@
     <Content Include="App\test\End-to-End\D-User.js" />
     <Content Include="App\test\End-to-End\E-Logout.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="ConfirmEmail.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\style.css" />
@@ -6931,6 +6946,7 @@
     <Content Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="ResetPassword.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

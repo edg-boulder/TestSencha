@@ -94,7 +94,7 @@ $gridrow-selected-color: #000;
 $grid-group-header-background-color: #5C6BC0;
 
 // Ext.grid.column.Column
-$gridcolumn-background-color: #BDBDBD;
+$gridcolumn-background-color: #EEEEEE;//#BDBDBD;
 $gridcolumn-border-color: transparent;
 $gridcolumn-font-weight: bold;
 //$gridcolumn-color: white;
@@ -102,7 +102,7 @@ $gridcolumn-font-weight: bold;
 
 
 .x-inner.x-panel-inner.x-layout-card, .x-container.dashboard {
-    background-color: #EEEEEE;
+    background-color: #E0E0E0;//#EEEEEE;
 }
 
 .x-container.dashboard .x-innerhtml {
@@ -112,3 +112,5 @@ $gridcolumn-font-weight: bold;
 .x-form-fieldset-title .x-innerhtml {
     font-weight: 600;
 }
+
+

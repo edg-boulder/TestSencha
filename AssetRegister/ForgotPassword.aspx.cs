@@ -51,9 +51,8 @@ namespace AssetRegister
                         Security.ForgotPassword(emailAddress).Wait();
 
                         success.InnerHtml = "<p>Reset instructions have been sent to the email address provided.<p>";
+                        reset.Visible = false;
 
-                        email.Value = "";
-                        
                         db.SaveChanges();
                     }
                 }

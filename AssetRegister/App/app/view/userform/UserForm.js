@@ -43,6 +43,7 @@ Ext.define('AssetRegister.view.userform.UserForm', {
         }]
     }, {
         xtype: 'fieldset',
+        maxWidth: 650,
         title: 'User Details',
         items: [{
             xtype: 'textfield',
@@ -59,6 +60,7 @@ Ext.define('AssetRegister.view.userform.UserForm', {
         }]
     }, {
         xtype: 'fieldset',
+        maxWidth: 650,
         title: 'Set Password',
         reference: 'setPassword',
         hidden: true,
@@ -73,6 +75,7 @@ Ext.define('AssetRegister.view.userform.UserForm', {
         }]
     }, {
         xtype: 'fieldset',
+        maxWidth: 650,
         title: 'API',
         items: [{
             xtype: 'textfield',

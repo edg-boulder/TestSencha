@@ -38,6 +38,7 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
         }]
     }, {
         xtype: 'fieldset',
+        maxWidth: 650,
         title: 'Asset Details',
         items: [{
             xtype: 'textfield',
@@ -61,6 +62,7 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
         }]
     }, {
         xtype: 'fieldset',
+        maxWidth: 650,
         title: 'Purchase',
         items: [{
             xtype: 'datepickerfield',

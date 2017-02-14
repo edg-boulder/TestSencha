@@ -41,6 +41,8 @@
           <Property Name="emailVerified" Type="bit" Nullable="false" />
           <Property Name="resetPasswordKey" Type="varchar" MaxLength="255" />
           <Property Name="resetPasswordDate" Type="datetime" />
+          <Property Name="confirmEmailKey" Type="varchar" MaxLength="255" />
+          <Property Name="confirmEmailDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -123,6 +125,8 @@
           <Property Name="emailVerified" Type="Boolean" Nullable="false" />
           <Property Name="resetPasswordKey" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="resetPasswordDate" Type="DateTime" Precision="3" />
+          <Property Name="confirmEmailKey" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="confirmEmailDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Asset_AssetType">
           <End Role="AssetType" Type="Self.AssetType" Multiplicity="1" />
@@ -192,6 +196,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="AssetRegisterModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="confirmEmailDate" ColumnName="confirmEmailDate" />
+                <ScalarProperty Name="confirmEmailKey" ColumnName="confirmEmailKey" />
                 <ScalarProperty Name="resetPasswordDate" ColumnName="resetPasswordDate" />
                 <ScalarProperty Name="resetPasswordKey" ColumnName="resetPasswordKey" />
                 <ScalarProperty Name="emailVerified" ColumnName="emailVerified" />

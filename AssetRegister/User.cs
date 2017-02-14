@@ -32,6 +32,8 @@ namespace AssetRegister
         public bool emailVerified { get; set; }
         public string resetPasswordKey { get; set; }
         public Nullable<System.DateTime> resetPasswordDate { get; set; }
+        public string confirmEmailKey { get; set; }
+        public Nullable<System.DateTime> confirmEmailDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asset> Assets { get; set; }
