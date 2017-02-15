@@ -25,10 +25,10 @@
     <input runat="server" type="password" name="password" id="password"><span class="highlight"></span><span class="bar"></span>
     <label>Password</label>
   </div>
-  <button type="submit" class="button buttonBlue" id="submit">Login
+  <button type="submit" class="button buttonBlue wide" id="submit">Login
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
-  <button type="button" class="button buttonBlue" id="reset">Reset
+  <button type="button" class="button buttonGrey narrow" id="reset">Reset
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
   <div class="group" style="text-align: center;">
@@ -40,7 +40,7 @@
 </form>
 
   <script src='js/jquery.min.js'></script>
-  <script src="js/login.js"></script>
+  <script src="js/entry.js"></script>
 
 </body>
 </html>

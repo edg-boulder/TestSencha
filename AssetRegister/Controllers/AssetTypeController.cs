@@ -12,6 +12,7 @@ using AssetRegister;
 
 namespace AssetRegister.Controllers
 {
+    [Authorize]
     public class AssetTypeController : ApiController
     {
         private AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };

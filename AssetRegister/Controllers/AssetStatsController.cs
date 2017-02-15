@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace AssetRegister.Controllers
 {
+    [Authorize]
     public class AssetStatsController : ApiController
     {
         private AssetRegisterEntities db = new AssetRegisterEntities() { Configuration = { LazyLoadingEnabled = false } };

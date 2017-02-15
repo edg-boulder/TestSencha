@@ -71,5 +71,11 @@ Ext.define('AssetRegister.view.main.Main', {
     }, {
         xtype: 'usercontainer',
         reference: 'user'
+    }, {
+        xtype: 'simpleuserform',
+        reference: 'userdetails'
+    }, {
+        xtype: 'about',
+        reference: 'about'
     }]
 });

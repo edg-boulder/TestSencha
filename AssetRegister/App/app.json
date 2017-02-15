@@ -17,7 +17,7 @@
     /**
      * The relative path to the application's markup file (html, jsp, asp, etc.).
      */
-    "indexHtmlPath": "../default.aspx",
+    "indexHtmlPath": "../defaultdev.aspx",
 
     /**
      * Comma-separated string with the paths of directories or files to search. Any classes
@@ -415,9 +415,14 @@
     
     "output": {
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
-        "appCache": {
-            "enable": false
-        }
+      "appCache": {
+        "enable": false
+      },
+      "microloader": {
+        "path": "microloader.js",
+        "embed": false,
+        "enable": true
+      }
     },
     
     
@@ -452,7 +457,6 @@
          * List of items in the CACHE MANIFEST section
          */
         "cache": [
-            "index.html"
         ],
         /**
          * List of items in the NETWORK section

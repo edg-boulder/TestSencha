@@ -43,7 +43,7 @@
 </form>
 
   <script src='js/jquery.min.js'></script>
-  <script src="js/login.js"></script>
+  <script src="js/entry.js"></script>
 
 </body>
 </html>

@@ -12,14 +12,20 @@ Ext.define('AssetRegister.view.main.MainController', {
             menuStore = Ext.getStore('Menu');
         
         // Extract the user's display name from the hidden field in the ASPX page, and show this in the Ext JS toolbar
-        if (hiddenName.getValue() != '') {
-            displayName.setHtml('Welcome, <span style="font-weight: bolder;">' + Ext.String.htmlEncode(hiddenName.getValue()) + '</span>');
-        }
+        me.updateDisplayName(hiddenName.getValue());
 
         // If this isn't an admin user, hide the Users section by removing the User entry in the Menu's Store
         if (!adminUser) {
             menuStore.remove(menuStore.getById('user'))
         }
+    },
+
+    updateDisplayName: function(name) {
+        var me = this,
+            view = me.getView(),
+            displayName = view.lookup('displayName');
+
+        displayName.setHtml('Welcome, <span style="font-weight: bolder;">' + Ext.String.htmlEncode(name) + '</span>');
     },
 
     routes: {
@@ -77,13 +83,15 @@ Ext.define('AssetRegister.view.main.MainController', {
 
             childController = childView.getController();
 
-            if (args) {
-                recordId = Ext.Number.from(args.substring(1));
-                childController.loadRecord(recordId);
-            } else {
-                // If the view being shown (e.g. Users) has a main view (e.g. the Grid of Users), show it
-                if (childController.showMainView) {
-                    childController.showMainView();
+            if (childController != null) {
+                if (args) {
+                    recordId = Ext.Number.from(args.substring(1));
+                    childController.loadRecord(recordId);
+                } else {
+                    // If the view being shown (e.g. Users) has a main view (e.g. the Grid of Users), show it
+                    if (childController.showMainView) {
+                        childController.showMainView();
+                    }
                 }
             }
         }

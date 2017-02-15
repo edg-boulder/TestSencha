@@ -73,14 +73,14 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
             label: 'Quantity',
             name: 'quantity',
             stepValue: 1,
-            minValue: 0,
+            //minValue: 1,
             maxValue: 10000000
         }, {
             xtype: 'numberfield',
             label: 'Per Unit Cost',
             name: 'cost',
             stepValue: 0.01,
-            minValue: 0,
+            //minValue: 0.01,
             maxValue: 10000000
         }]
     }]

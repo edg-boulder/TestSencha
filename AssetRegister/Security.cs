@@ -113,7 +113,7 @@ namespace AssetRegister
 
                 db.SaveChanges();
 
-                string url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(0, HttpContext.Current.Request.Url.AbsoluteUri.LastIndexOf("/"));
+                string url = Security.GetBaseUrl();
                 url += String.Format("/ResetPassword.aspx?key={0}", resetApiKey);
 
                 string message = String.Format("<h3>Asset Register - Forgot Password</h3><p>To reset your password, please click on the unique link below. This link will expire after 24 hours.</p><p><a href='{0}'>{0}</a></p>", url);
@@ -144,10 +144,15 @@ namespace AssetRegister
 
                 db.SaveChanges();
 
-                string url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(0, HttpContext.Current.Request.Url.AbsoluteUri.LastIndexOf("/"));
-                url += String.Format("/ConfirmEmail.aspx?key={0}", confirmEmailKey);
-
-                string message = String.Format("<h3>Asset Register - Activate Your Account</h3><p>In order to activate your account for Asset Register, please click on the unique link below to confirm your email address.</p><p><a href='{0}'>{0}</a></p>", url);
+                string url = Security.GetBaseUrl();
+                string confirmUrl = String.Format("{0}/ConfirmEmail.aspx?key={1}", url, confirmEmailKey);
+                string loginUrl = String.Format("{0}/Login.aspx?apiKey={1}", url, user.apiKey);
+                
+                string message = String.Format("<h3>Asset Register - Activate Your Account</h3><p>In order to activate your account for Asset Register, please click on the link below to confirm your " +
+                        "email address. This link will expire after 24 hours.</p><p><a href='{0}'>{0}</a></p>" +
+                        "<h3>Sencha Studio configuration</h3><p>In Sencha Studio, you can use the application's login page URL as the 'Location (URL)', along with your API Key defined, " +
+                        "which will automatically reset your dataset at the start of each test run. Your unique URL for Sencha Studio is defined below:" +
+                        "<p style='font-family: Courier, Courier New; font-weight: bold;'>{1}</p>", confirmUrl, loginUrl);
 
                 Email from = new Email("donotreply-assetregister@sencha.com");
                 string subject = "Asset Register - Activate Your Account";
@@ -157,6 +162,19 @@ namespace AssetRegister
 
                 dynamic response = await sendgrid.client.mail.send.post(requestBody: mail.Get());
             }
+        }
+
+        private static string GetBaseUrl()
+        {
+            string url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(0, HttpContext.Current.Request.Url.AbsoluteUri.LastIndexOf("/"));
+
+            // This method could be called from either the Registration page or the User web service - so it may have an "/api/" endpoint.
+            if (url.IndexOf("/api") > 0)
+            {
+                url = url.Substring(0, url.IndexOf("/api"));
+            }
+
+            return url;
         }
     }
 }

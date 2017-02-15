@@ -34,9 +34,9 @@ describe('Login', function() {
             .click(10, 10);
     });
     
-    it('Screenshot should match baseline', function(done) {
+    /*it('Screenshot should match baseline', function(done) {
         ST.screenshot('Login');
-    });
+    });*/
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
@@ -60,6 +60,9 @@ describe('Login', function() {
             .click(20, 20);
         
         Page.errorText()
+            .and(function(text) {
+                debugger;
+            })
             .textLike('User with this email address not found');
     });
     

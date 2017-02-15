@@ -90,9 +90,7 @@ namespace AssetRegister
 
                     register.Visible = false;
 
-                    success.InnerHtml = "<p><span style='font-weight: bold;'>Your user account has been created!</span> Please check your email - you will only be able to login after clicking the link in the activation email.</p>" +
-                        "<p>In order to reset data in the app via an API call, you will require the following unique API Key. <span style='font-weight: bold;'>Please take a note of this now:</span></p>" + 
-                        "<p style='font-family: Courier, Courier New; font-weight: bold;'>" + user.apiKey + "</p>";
+                    success.InnerHtml = "<p><span style='font-weight: bold;'>Your user account has been created!</span> Please check your email - you will only be able to login after clicking the link in the activation email.</p>";
                 }
             }
         }

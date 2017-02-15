@@ -146,11 +146,9 @@ input:focus ~ .highlight {
 
 .button {
   position: relative;
-  display: inline-block;
   padding: 12px 24px;
   margin: .3em 0 1em 0;
   width: 100%;
-  vertical-align: middle;
   color: #fff;
   font-size: 16px;
   line-height: 20px;
@@ -159,7 +157,6 @@ input:focus ~ .highlight {
   letter-spacing: 1px;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid #3160B6;
   cursor: pointer;
   -webkit-transition:all 0.15s ease;
   transition: all 0.15s ease;
@@ -171,7 +168,22 @@ input:focus ~ .highlight {
 
 .buttonBlue {
   background: #4a89dc;
+  border-bottom: 2px solid #3160B6;
   text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+
+.buttonGrey {
+    color: #424242;
+    background: #BDBDBD;
+    border-bottom: 2px solid #757575;
+}
+
+.wide {
+    width: calc(68% - 3px);
+}
+
+.narrow {
+    width: calc(32% - 3px);
 }
 
 .buttonBlue:hover { background: #357bd8; }

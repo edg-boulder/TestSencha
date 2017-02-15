@@ -2,7 +2,8 @@ Ext.define('AssetRegister.model.Asset', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'Ext.data.validator.Presence'
+        'Ext.data.validator.Presence',
+        'Ext.data.validator.Range'
     ],
 
     fields: [{
@@ -50,6 +51,14 @@ Ext.define('AssetRegister.model.Asset', {
         },
         purchaseDate: {
             type: 'presence'
+        },
+        quantity: {
+            type: 'range',
+            min: 1
+        },
+        cost: {
+            type: 'range',
+            min: 0.01
         }
     }
 });

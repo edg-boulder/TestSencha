@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AssetRegister.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DefaultDev.aspx.cs" Inherits="AssetRegister.DefaultDev" %>
 <!DOCTYPE HTML>
-<html manifest="">
+<html manifest="cache.appcache">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
@@ -48,7 +48,7 @@
     -->
     
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
-    <script id="microloader" data-app="f25b345b-ff7e-4d27-b00c-a7c9153e7b14" type="text/javascript" src="App/bootstrap.js"></script>
+    <script  id="microloader" data-app="f25b345b-ff7e-4d27-b00c-a7c9153e7b14" src="microloader.js"></script>
 
 </head>
 <body>

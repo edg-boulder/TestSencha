@@ -2,7 +2,9 @@ Ext.define('AssetRegister.model.User', {
     extend: 'Ext.data.Model',
 
     requires: [
-        'Ext.data.validator.Presence'
+        'Ext.data.validator.Presence',
+        'Ext.data.validator.Email',
+        'AssetRegister.data.validator.Password'
     ],
 
     fields: [{
@@ -20,10 +22,12 @@ Ext.define('AssetRegister.model.User', {
         name: 'apiKey'
     }, {
         name: 'lastLogin',
-        type: 'date'
+        type: 'date',
+        dateWriteFormat: 'c'
     }, {
         name: 'lastAccess',
-        type: 'date'
+        type: 'date',
+        dateWriteFormat: 'c'
     }],
 
     identifier: 'sequential',

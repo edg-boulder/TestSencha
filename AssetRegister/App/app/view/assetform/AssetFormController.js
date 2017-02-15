@@ -4,28 +4,33 @@ Ext.define('AssetRegister.view.assetform.AssetFormController', {
 
     record: null,
 
+    refreshDashboard: function () {
+        var me = this,
+            view = me.getView();
+
+        view.up('main').down('dashboard').getController().refreshDashboard();
+    },
+
     onSave: function () {
         var me = this,
             view = me.getView(),
             values = view.getValues(),
             record = view.getRecord(),
             phantom = record.phantom,
-            validation, errors, dummyRecord;
-
-        dummyRecord = Ext.create('AssetRegister.model.Asset', values);
-
-        validation = dummyRecord.getValidation();
+            validation, errors;
 
         delete values['id'];
+
+        record.beginEdit();
+        record.set(values);
+
+        validation = record.getValidation();
 
         if (validation.isValid()) {
             Ext.Viewport.setMasked({
                 xtype: 'loadmask',
                 message: 'Saving...'
             });
-
-            record.beginEdit();
-            record.set(values);
 
             record.save({
                 callback: function (record, operation, success) {
@@ -35,6 +40,8 @@ Ext.define('AssetRegister.view.assetform.AssetFormController', {
         } else {
             // Show validation errors to the user
             validation.showValidationErrors(view);
+
+            record.cancelEdit();
         }
     },
 
@@ -63,7 +70,7 @@ Ext.define('AssetRegister.view.assetform.AssetFormController', {
             me.goBack();
 
             // Refresh the dashboard stats
-            view.up('main').down('dashboard').getController().refreshDashboard();
+            me.refreshDashboard();
         } else {
             if (operation.getError().response) {
                 Ext.Msg.alert('Error', 'An error occurred during saving: ' + operation.getError().response.responseText);
@@ -121,6 +128,8 @@ Ext.define('AssetRegister.view.assetform.AssetFormController', {
 
         if (success) {
             Ext.toast('Record deleted!');
+
+            me.refreshDashboard();
 
             me.goBack();
         } else {

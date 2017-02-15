@@ -34,10 +34,10 @@
         <input runat="server" type="password" name="confirmpassword" id="confirmpassword"><span class="highlight"></span><span class="bar"></span>
         <label>Confirm Password</label>
       </div>
-      <button type="submit" class="button buttonBlue" id="submit">Register
+      <button type="submit" class="button buttonBlue wide" id="submit">Register
         <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
       </button>
-      <button type="button" class="button buttonBlue" id="reset">Reset
+      <button type="button" class="button buttonGrey narrow" id="reset">Reset
         <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
       </button>
   </div>
@@ -53,7 +53,7 @@
 </form>
 
   <script src='js/jquery.min.js'></script>
-  <script src="js/login.js"></script>
+  <script src="js/entry.js"></script>
 
 </body>
 </html>

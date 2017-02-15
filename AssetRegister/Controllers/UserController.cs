@@ -79,6 +79,13 @@ namespace AssetRegister.Controllers
             {
                 var dbUser = db.Users.Find(id);
 
+                var duplicateEmailUser = db.Users.Where(u => u.id != id).FirstOrDefault(u => u.emailAddress == user.emailAddress);
+
+                if (duplicateEmailUser != null)
+                {
+                    return Content(HttpStatusCode.BadRequest, "A user with this Email address already exists");
+                }
+
                 if (user.password != null && user.password != "")
                 {
                     var crypto = new SimpleCrypto.PBKDF2();
@@ -135,12 +142,17 @@ namespace AssetRegister.Controllers
 
             user.password = encryptedPassword;
             user.passwordSalt = crypto.Salt;
+            user.emailVerified = false;
             
             user.apiKey = Security.GenerateApiKey();
 
             db.Users.Add(user);
             db.SaveChanges();
-            
+
+            Security.SendVerificationEmail(user.emailAddress).Wait();
+
+            Security.GenerateSampleData(user.apiKey);
+
             return CreatedAtRoute("DefaultApi", new { id = user.id, apiKey = user.apiKey }, new { id = user.id, apiKey = user.apiKey });
         }
         
@@ -164,6 +176,13 @@ namespace AssetRegister.Controllers
             if (user.admin)
             {
                 return Unauthorized();
+            }
+
+            var userAssets = db.Assets.Where(a => a.userId == id);
+
+            foreach(var userAsset in userAssets)
+            {
+                db.Assets.Remove(userAsset);
             }
 
             db.Users.Remove(user);
