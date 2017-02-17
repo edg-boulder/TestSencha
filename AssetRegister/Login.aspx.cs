@@ -79,11 +79,14 @@ namespace AssetRegister
 
                             Response.Cookies.Add(authCookie);
 
-                            #if DEBUG
+                            if (Request.Url.AbsoluteUri.IndexOf("://localhost") > 0)
+                            {
                                 Response.Redirect("DefaultDev.aspx");
-                            #else
+                            }
+                            else
+                            {
                                 Response.Redirect("Default.aspx");
-                            #endif    
+                            }
                         }
                         else
                         {

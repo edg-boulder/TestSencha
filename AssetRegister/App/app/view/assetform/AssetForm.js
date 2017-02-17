@@ -28,12 +28,29 @@ Ext.define('AssetRegister.view.assetform.AssetForm',{
             text: 'Back',
             handler: 'onBack'
         }, {
+            xtype: 'spacer',
+            platformConfig: {
+                '!phone': {
+                    hidden: true
+                }
+            }
+        }, {
             iconCls: 'x-fa fa-floppy-o',
-            text: 'Save',
+            reference: 'save',
+            platformConfig: {
+                '!phone': {
+                    text: 'Save'
+                }
+            },
             handler: 'onSave'
         }, {
             iconCls: 'x-fa fa-trash-o',
-            text: 'Delete',
+            reference: 'delete',
+            platformConfig: {
+                '!phone': {
+                    text: 'Delete'
+                }
+            },
             handler: 'onDelete'
         }]
     }, {

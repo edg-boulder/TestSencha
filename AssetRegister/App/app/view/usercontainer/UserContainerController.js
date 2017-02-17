@@ -51,8 +51,8 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
         form.reset();
         form.setRecord(record);
         fieldset = form.lookup('setPassword');
-        deleteButton = form.down('button[text=Delete]');
-        changeButton = form.down('button[text=Change Password]');
+        deleteButton = form.down('button[reference=delete]');
+        changeButton = form.down('button[reference=changepassword]');
 
         if (record.phantom) {
             fieldset.show();

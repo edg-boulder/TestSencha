@@ -49,11 +49,6 @@ namespace AssetRegister.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, User user)
         {
-            if (!Security.IsAdmin())
-            {
-                return Unauthorized();
-            }
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -63,9 +58,7 @@ namespace AssetRegister.Controllers
             {
                 return BadRequest();
             }
-
-            //db.Entry(user).State = EntityState.Modified;
-
+            
             try
             {
                 var dbUser = db.Users.Find(id);

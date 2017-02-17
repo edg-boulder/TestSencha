@@ -55,7 +55,7 @@ Ext.define('AssetRegister.view.assetcontainer.AssetContainerController', {
         form.reset();
         form.setRecord(record);
 
-        deleteButton = form.down('button[text=Delete]');
+        deleteButton = form.down('button[reference=delete]');
 
         if (record.phantom) {
             deleteButton.hide();

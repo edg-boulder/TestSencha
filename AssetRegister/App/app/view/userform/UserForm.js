@@ -29,16 +29,38 @@ Ext.define('AssetRegister.view.userform.UserForm', {
             text: 'Back',
             handler: 'onBack'
         }, {
+            xtype: 'spacer',
+            platformConfig: {
+                '!phone': {
+                    hidden: true
+                }
+            }
+        }, {
             iconCls: 'x-fa fa-key',
-            text: 'Change Password',
+            reference: 'changepassword',
+            platformConfig: {
+                '!phone': {
+                    text: 'Change Password'
+                }
+            },
             handler: 'onChangePassword'
         }, {
             iconCls: 'x-fa fa-floppy-o',
-            text: 'Save',
+            reference: 'save',
+            platformConfig: {
+                '!phone': {
+                    text: 'Save'
+                }
+            },
             handler: 'onSave'
         }, {
             iconCls: 'x-fa fa-trash-o',
-            text: 'Delete',
+            reference: 'delete',
+            platformConfig: {
+                '!phone': {
+                    text: 'Delete'
+                }
+            },            
             handler: 'onDelete'
         }]
     }, {

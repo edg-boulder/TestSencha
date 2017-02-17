@@ -13,7 +13,7 @@ describe("Asset.js", function() {
             return ST.button('assetform button[text=Back]');
         },
         saveButton: function() {
-            return ST.button('assetform button[text=Save]');  
+            return ST.button('assetform button[reference=save]');  
         },
         addButton: function() {
             return ST.button('assetgrid button[text=Add New]');
@@ -62,7 +62,8 @@ describe("Asset.js", function() {
     });
     
     it('Should show a grid of Assets', function() {
-        Page.grid();
+        Page.grid()
+            .visible();
     });
     
     it('Grid should contain Asset data', function() {
@@ -75,7 +76,8 @@ describe("Asset.js", function() {
             .rowAt(2)
             .click(10, 10);
             
-        Page.form();
+        Page.form()
+            .visible();
     });
     
     it('Clicking the Back button should return to the grid of Assets', function() {
@@ -94,7 +96,8 @@ describe("Asset.js", function() {
             .rowWith('name', 'Statesman 10-piece conference table and chairs')
             .click(10, 10);
             
-        Page.form();
+        Page.form()
+            .visible();
     });
     
     it('Changing the Asset quantity and saving should update the grid', function() {

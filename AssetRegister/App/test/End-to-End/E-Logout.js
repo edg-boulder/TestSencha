@@ -1,7 +1,7 @@
-describe("Logout.js", function() {
+describe('Logout.js', function() {
     var Page = {
         logoutButton: function() {
-            return ST.button('[reference=logout]')
+            return ST.button('[reference=logout]');
         }  
     };
     

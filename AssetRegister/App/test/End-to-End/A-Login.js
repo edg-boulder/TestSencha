@@ -1,3 +1,8 @@
+/*
+    Login.aspx doesn't use any Ext JS components - it's just a standard
+    HTML page with input elements, so we use ST.element to reference
+    all of the form fields and buttons on the page by their ID.
+*/
 describe('Login', function() {
     var Page = {
         /*
@@ -18,11 +23,15 @@ describe('Login', function() {
         registrationLink: function() {
             return ST.element('@register');  
         },
-        loginLink: function() {
-            return ST.element('@login');  
-        },
         errorText: function() {
             return ST.element('@errors');
+        },
+        
+        /*
+            Registration screen elements
+        */
+        loginLink: function() {
+            return ST.element('@login');  
         }
     };
 
@@ -34,9 +43,9 @@ describe('Login', function() {
             .click(10, 10);
     });
     
-    /*it('Screenshot should match baseline', function(done) {
+    it('Screenshot should match baseline', function(done) {
         ST.screenshot('Login');
-    });*/
+    });
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
@@ -60,23 +69,20 @@ describe('Login', function() {
             .click(20, 20);
         
         Page.errorText()
-            .and(function(text) {
-                debugger;
-            })
             .textLike('User with this email address not found');
     });
     
     it('Should display an error when attempting to login with a valid email but an invalid password', function() {
         Page.emailField()
             .focus()
-            .type('dan@sencha.com')
+            .type('dan@sencha.com');
         
         Page.passwordField()
             .focus()
             .type('test');
             
         Page.submitButton()
-            .click(20, 20)
+            .click(20, 20);
         
         Page.errorText()
             .textLike('You entered an invalid password');
