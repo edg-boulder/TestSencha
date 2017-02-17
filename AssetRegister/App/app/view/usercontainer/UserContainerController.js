@@ -39,7 +39,7 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
         var me = this,
             view = me.getView(),
             form = view.down('userform'),
-            fieldset, deleteButton;
+            fieldset, changeButton, deleteButton;
 
         if (form == null) {
             form = view.add({
@@ -52,13 +52,16 @@ Ext.define('AssetRegister.view.usercontainer.UserContainerController', {
         form.setRecord(record);
         fieldset = form.lookup('setPassword');
         deleteButton = form.down('button[text=Delete]');
+        changeButton = form.down('button[text=Change Password]');
 
         if (record.phantom) {
             fieldset.show();
             deleteButton.hide();
+            changeButton.hide();
         } else {
             fieldset.hide();
             deleteButton.show();
+            changeButton.show();
         }
 
         view.setActiveItem(view.items.length - 1);

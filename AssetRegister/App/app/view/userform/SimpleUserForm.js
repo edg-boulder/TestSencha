@@ -15,9 +15,16 @@ Ext.define('AssetRegister.view.userform.SimpleUserForm',{
 
     controller: 'simpleuserform',
 
-    margin: 16,
-
-    cls: 'appview',
+    platformConfig: {
+        phone: {
+            cls: '',
+            margin: 0
+        },
+        '!phone': {
+            cls: 'appview',
+            margin: 16
+        }
+    },
 
     bodyPadding: 10,
 

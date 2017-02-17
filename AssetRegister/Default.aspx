@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DefaultDev.aspx.cs" Inherits="AssetRegister.DefaultDev" %>
 <!DOCTYPE HTML>
-<html manifest="cache.appcache">
+<html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">

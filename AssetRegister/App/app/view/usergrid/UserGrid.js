@@ -22,34 +22,51 @@ Ext.define('AssetRegister.view.usergrid.UserGrid', {
 
     disableSelection: true,
 
-    columns: [{
-        text: 'Name',
-        flex: 1,
-        dataIndex: 'name'
-    }, {
-        text: 'Email',
-        flex: 1,
-        dataIndex: 'emailAddress'
-    }, {
-        xtype: 'booleancolumn',
-        width: 110,
-        text: 'Admin',
-        trueText: 'Yes',
-        falseText: 'No',
-        dataIndex: 'admin'
-    }, {
-        xtype: 'datecolumn',
-        text: 'Last Login',
-        width: 200,
-        dataIndex: 'lastLogin',
-        format: 'Y-m-d @ h:ia'
-    }, {
-        xtype: 'datecolumn',
-        text: 'Last Access',
-        width: 200,
-        dataIndex: 'lastAccess',
-        format: 'Y-m-d @ h:ia'
-    }],
+    /**
+     * On phones just show one column with a custom renderer.
+     */
+    platformConfig: {
+        phone: {
+            hideHeaders: true,
+
+            columns: [{
+                text: 'Name',
+                dataIndex: 'name',
+                sortable: false,
+                flex: 1
+            }]
+        },
+        '!phone': {
+            columns: [{
+                text: 'Name',
+                flex: 1,
+                dataIndex: 'name'
+            }, {
+                text: 'Email',
+                flex: 1,
+                dataIndex: 'emailAddress'
+            }, {
+                xtype: 'booleancolumn',
+                width: 110,
+                text: 'Admin',
+                trueText: 'Yes',
+                falseText: 'No',
+                dataIndex: 'admin'
+            }, {
+                xtype: 'datecolumn',
+                text: 'Last Login',
+                width: 200,
+                dataIndex: 'lastLogin',
+                format: 'Y-m-d @ h:ia'
+            }, {
+                xtype: 'datecolumn',
+                text: 'Last Access',
+                width: 200,
+                dataIndex: 'lastAccess',
+                format: 'Y-m-d @ h:ia'
+            }]
+        }
+    },
 
     items: [{
         xtype: 'toolbar',

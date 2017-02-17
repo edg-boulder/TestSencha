@@ -20,29 +20,40 @@ Ext.define('AssetRegister.view.assetgrid.AssetGrid',{
 
     disableSelection: true,
 
-    columns: [{
-        text: 'Name',
-        flex: 1,
-        dataIndex: 'name'
-    }, {
-        text: 'Type',
-        flex: 1,
-        dataIndex: 'assetTypeName'
-    }, {
-        xtype: 'numbercolumn', 
-        format: '0,000',
-        align: 'right',
-        width: 150,
-        dataIndex: 'quantity',
-        text: 'Quantity'
-    }, {
-        xtype: 'numbercolumn',
-        format: '$0,000.00',
-        align: 'right',
-        width: 150,
-        dataIndex: 'cost',
-        text: 'Unit Cost'
-    }],
+    platformConfig: {
+        phone: {
+            columns: [{
+                text: 'Name',
+                flex: 1,
+                dataIndex: 'name'
+            }]
+        },
+        '!phone': {
+            columns: [{
+                text: 'Name',
+                flex: 1,
+                dataIndex: 'name'
+            }, {
+                text: 'Type',
+                flex: 1,
+                dataIndex: 'assetTypeName'
+            }, {
+                xtype: 'numbercolumn',
+                format: '0,000',
+                align: 'right',
+                width: 150,
+                dataIndex: 'quantity',
+                text: 'Quantity'
+            }, {
+                xtype: 'numbercolumn',
+                format: '$0,000.00',
+                align: 'right',
+                width: 150,
+                dataIndex: 'cost',
+                text: 'Unit Cost'
+            }]
+        }
+    },
 
     items: [{
         xtype: 'toolbar',

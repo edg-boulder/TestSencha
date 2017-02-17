@@ -356,6 +356,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.js" />
+    <Content Include="App\app\view\dashboard\AssetCount.js" />
+    <Content Include="App\app\view\dashboard\AssetCountModel.js" />
+    <Content Include="App\app\view\dashboard\AssetValue.js" />
+    <Content Include="App\app\view\dashboard\AssetValueModel.js" />
+    <Content Include="App\app\view\dashboard\CategorySpend.js" />
+    <Content Include="App\app\view\dashboard\CategorySpendModel.js" />
+    <Content Include="App\app\view\dashboard\MonthlySpend.js" />
+    <Content Include="App\app\view\dashboard\MonthlySpendModel.js" />
     <Content Include="bootstrap.js" />
     <Content Include="index.html" />
     <Content Include="microloader.js" />

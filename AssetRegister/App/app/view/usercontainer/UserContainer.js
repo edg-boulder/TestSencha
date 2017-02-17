@@ -13,10 +13,17 @@ Ext.define('AssetRegister.view.usercontainer.UserContainer',{
     viewModel: {
         type: 'usercontainer'
     },
-
-    margin: 16,
-
-    cls: 'appview',
+    
+    platformConfig: {
+        phone: {
+            cls: '',
+            margin: 0
+        },
+        '!phone': {
+            cls: 'appview',
+            margin: 16
+        }
+    },
 
     layout: 'card',
 

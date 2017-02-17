@@ -103,7 +103,7 @@ describe('Login', function() {
     it('Should login when valid login credentials have been provided and redirect to the app', function() {
         Page.emailField()
             .focus()
-            .type('testaccount@sencha.com')
+            .type('testaccount@sencha.com');
         
         Page.passwordField()
             .focus()

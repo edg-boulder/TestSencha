@@ -39,7 +39,12 @@ Ext.define('AssetRegister.view.main.Main', {
             xtype: 'spacer'
         }, {
             xtype: 'container',
-            reference: 'displayName'
+            reference: 'displayName',
+            platformConfig: {
+                phone: {
+                    hidden: true
+                }
+            }
         }, {
             xtype: 'spacer',
             width: 10

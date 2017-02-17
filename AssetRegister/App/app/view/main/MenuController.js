@@ -4,6 +4,13 @@
 
     privates: {
         onMenuItemTap: function (menu, index, el, record) {
+            var me = this,
+                view = me.getView();
+
+            if (Ext.platformTags.phone) {
+                view.hide();
+            }
+
             this.redirectTo(record.getId());
         }
     }

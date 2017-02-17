@@ -130,7 +130,7 @@ describe("Asset.js", function() {
             .click();
     });
     
-    it('Saving an Asset without entering values should show validation message and prevent save', function() {
+    xit('Saving an Asset without entering values should show validation message and prevent save', function() {
         Page.saveButton()
             .click();
             

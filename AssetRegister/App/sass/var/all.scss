@@ -51,13 +51,13 @@ $button-icon-font-size: 1.3em;
 $button-icon-horizontal-spacing: 0.4em;
 $button-icon-horizontal-spacing-big: 0.4em;
 $button-padding: 1em;
-$button-padding-big: 0.825em 1.4em;
+$button-padding-big: 1em;
 
 // Ext.Toolbar
 $toolbar-background-color: #FFFFFF; //#F5F5F5;
 $toolbar-horizontal-spacing: 4px;
 $toolbar-horizontal-spacing-big: 4px;
-$toolbar-padding: 0px;
+$toolbar-padding: 4px;
 
 // Ext.Sheet
 $sheet-border-color: transparent;
@@ -110,4 +110,9 @@ $gridcolumn-font-weight: bold;
 
 .x-form-fieldset-title .x-innerhtml {
     font-weight: 600;
+}
+
+.x-big .x-toolbar-inner {
+    padding: 0em !important;
+    min-height: 3.5rem !important;
 }
