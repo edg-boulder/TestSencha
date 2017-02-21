@@ -15,11 +15,26 @@ describe("Asset.js", function() {
         saveButton: function() {
             return ST.button('assetform button[reference=save]');  
         },
+        deleteButton: function() {
+            return ST.button('assetform button[reference=delete]');
+        },
         addButton: function() {
             return ST.button('assetgrid button[text=Add New]');
         },
         messageBox: function() {
             return ST.component('messagebox');
+        },
+        messageBoxOkButton: function() {
+            return ST.button('messagebox button[text=OK]');  
+        },
+        messageBoxYesButton: function() {
+            return ST.button('messagebox button[text=Yes]'); 
+        },
+        messageBoxNoButton: function() {
+            return ST.button('messagebox button[text=No]');   
+        },
+        messageToast: function() {
+            return ST.component('sheet[baseCls=x-toast]');  
         },
         
         /*
@@ -54,6 +69,16 @@ describe("Asset.js", function() {
             return ST.component('container#assetValue');  
         }
     };
+    
+    var newAsset = {
+        name: 'Epson PowerLite Home Cinema 1080p Projector',
+        description: '2D and 3D 1080p projector with 3-chip optical engine',
+        type: 'Computers',
+        quantity: 2,
+        cost: 1999
+    };
+    
+    var newAssetRow = null;
     
     it('Should navigate to the Assets view when clicking the Asset icon in menu', function() {
         Page.menu()
@@ -133,7 +158,7 @@ describe("Asset.js", function() {
             .click();
     });
     
-    xit('Saving an Asset without entering values should show validation message and prevent save', function() {
+    it('Saving an Asset without entering values should show validation message and prevent save', function() {
         Page.saveButton()
             .click();
             
@@ -142,28 +167,135 @@ describe("Asset.js", function() {
             .textLike('Validation errors')
             .textLike('Name Must be present')
             .textLike('Description Must be present')
-            .textLike('Type Must be present');
+            .textLike('Type Must be present')
+            .textLike('Quantity Must be at least 1')
+            .textLike('Per Unit Cost Must be at least 0.01');
+            
+        Page.messageBoxOkButton()
+            .click();
+            
+        Page.messageBox()
+            .hidden();
     });
     
-    xit('Date field should default to the current date', function(done) {
-        
-        // TODO
+    it('Date field should default to the current date for new Asset records', function() {
+        var currentDate = new Date();
         
         Page.dateField()
-            .expect('value').toEqual(new Date());
+            .get('formattedValue')
+            .and(function() {
+                var fieldDate = new Date(this.future.data.formattedValue);
+                
+                // Check that the date value in the field matches the current date
+                expect(fieldDate.toDateString()).toEqual(currentDate.toDateString());
+            });
     });
     
-    xit('Other form fields should be blank for new Asset records', function(done) {
-        
-        // TODO
-        
+    it('Other form fields should be blank for new Asset records', function() {
         Page.nameField()
-            .value('');
+            .valueEmpty();
             
         Page.descriptionField()
-            .value('');
+            .valueEmpty();
             
         Page.typeField()
-            .value('');
+            .valueEmpty();
+    });
+    
+    it('Should allow values to be entered in to all editable form fields', function() {
+        Page.nameField()
+            .setValue(newAsset.name);
+            
+        Page.descriptionField()
+            .setValue(newAsset.description);
+            
+        Page.typeField()
+            .setValue(newAsset.type);
+            
+        Page.quantityField()
+            .setValue(newAsset.quantity);
+            
+        Page.costField()
+            .setValue(newAsset.cost);
+    });
+    
+    it('Should save the new Asset record when clicking Save button, show a confirmation message, and return to grid', function() {
+        Page.saveButton()
+            .click();
+            
+        Page.messageToast()
+            .visible()
+            .expect('innerText').toContain('Record saved');
+            
+        Page.form()
+            .hidden();
+            
+        Page.grid()
+            .visible();
+    });
+    
+    it('Grid should show the newly added Asset record with correct values shown in each column', function() {
+        // Convert the cost value in to a formatted currency value
+        var formattedCost = '$' + newAsset.cost.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '1,');
+        
+        newAssetRow = Page.grid().rowWith('name', newAsset.name);
+        
+        newAssetRow.cellWith('dataIndex', 'assetTypeName').text(newAsset.type);
+        
+        newAssetRow.cellWith('dataIndex', 'quantity').text(newAsset.quantity.toString());
+            
+        newAssetRow.cellWith('dataIndex', 'cost').text(formattedCost);
+    });
+    
+    it('Should show the newly added Asset record when selecting it in the grid', function() {
+        newAssetRow.click();
+            
+        Page.form()
+            .visible();
+    });
+    
+    it('Clicking the Delete button should show a message asking the user to confirm the deletion', function() {
+        Page.deleteButton()
+            .click();
+            
+        Page.messageBox()
+            .visible()
+            .textLike('Confirm deletion')
+            .expect('innerText').toContain('Are you sure you want to permanently delete this asset?');
+    });
+    
+    it('Clicking on No should not delete the record', function() {
+        Page.messageBoxNoButton()
+            .click();
+            
+        Page.messageBox()
+            .hidden();
+            
+        Page.form()
+            .visible();
+    });
+    
+    it('Should delete the newly added Asset record when clicking Delete button, show a confirmation message, and return to grid', function() {
+        Page.deleteButton()
+            .click();
+            
+        Page.messageBoxYesButton()
+            .click();
+            
+        Page.messageToast()
+            .visible()
+            .expect('innerText').toContain('Record deleted');
+            
+        Page.form()
+            .hidden();
+            
+        Page.grid()
+            .visible();
+    });
+    
+    it('Deleted record should no longer exist in the grid', function() {
+        Page.grid()
+            .rowWith('name', newAsset.name)
+            .timedout();
     });
 });

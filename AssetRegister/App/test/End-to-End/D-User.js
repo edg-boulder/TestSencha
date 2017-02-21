@@ -116,8 +116,8 @@ describe("User.js", function() {
             
         Page.messageBox()
             .visible()
-            .textLike('Validation errors')
-            .textLike('Password Does not meet requirements (8 character minimum)');
+            .expect('innerText').toContain('Validation errors')
+            .expect('innerText').toContain('Password Does not meet requirements (8 character minimum)');
             
         Page.messageBoxButton()
             .click();
@@ -138,8 +138,8 @@ describe("User.js", function() {
             
         Page.messageBox()
             .visible()
-            .textLike('Validation errors')
-            .textLike('Password Does not match confirmation password');
+            .expect('innerText').toContain('Validation errors')
+            .expect('innerText').toContain('Password Does not match confirmation password');
             
         Page.messageBoxButton()
             .click();
@@ -150,19 +150,19 @@ describe("User.js", function() {
     
     it('Changing the Password to a valid value will successfully save', function() {
         Page.passwordField()
-            .setValue('randompass1');
+            .setValue('senchasencha');
             
         Page.confirmPasswordField()
-            .setValue('randompass1');
+            .setValue('senchasencha');
             
         Page.saveButton()
-            .click();
+            .click(5, 5);
             
         Page.messageBox()
             .hidden();
             
         Page.messageToast()
             .visible()
-            .textLike('User details saved');
+            .expect('innerText').toContain('User details saved');
     });
 });
