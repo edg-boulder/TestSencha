@@ -7,13 +7,23 @@
         }
     });
 
-    $('button[id="reset"]').on('click', (function () {
+    $('button[id="btnReset"]').on('click', (function () {
         $('input[type=text],input[type=password],input[type=email]').each(function () {
             var $this = $(this);
             $this.val('');
             $this.removeClass('used');
         });
     }));
+
+    /*$('button[id="btnSubmit"]').on('click', (function () {
+        var $this = $(this);
+
+        console.log('submitting');
+        $this.attr('disabled', 'disabled');
+        $this.attr('text', 'Submitting...');
+        
+        document.forms[0].submit();
+    }));*/
 
     $('input').blur(function () {
         var $this = $(this);
