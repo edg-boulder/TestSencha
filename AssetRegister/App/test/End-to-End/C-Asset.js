@@ -99,7 +99,7 @@ describe("Asset.js", function() {
     it('Should show the Asset details view when an Asset is clicked in the grid', function() {
         Page.grid()
             .rowAt(2)
-            .click(10, 10);
+            .click();
             
         Page.form()
             .visible();
@@ -119,7 +119,7 @@ describe("Asset.js", function() {
     it('Should show the Asset details view when a specific Asset is clicked in the grid', function() {
         Page.grid()
             .rowWith('name', 'Statesman 10-piece conference table and chairs')
-            .click(10, 10);
+            .click();
             
         Page.form()
             .visible();
@@ -130,7 +130,7 @@ describe("Asset.js", function() {
             .setValue(4);
             
         Page.saveButton()
-            .click(10, 10);
+            .click();
         
         Page.grid()
             .wait(1000)
@@ -179,16 +179,15 @@ describe("Asset.js", function() {
     });
     
     it('Date field should default to the current date for new Asset records', function() {
-        var currentDate = new Date();
+        // This returns the current date in the format 02/24/2017, for example
+        var currentDate = new Date().toLocaleDateString("en-US", {
+            year: "numeric", 
+            month: "2-digit",
+            day: "2-digit"
+        });
         
         Page.dateField()
-            .get('formattedValue')
-            .and(function() {
-                var fieldDate = new Date(this.future.data.formattedValue);
-                
-                // Check that the date value in the field matches the current date
-                expect(fieldDate.toDateString()).toEqual(currentDate.toDateString());
-            });
+            .expect('formattedValue').toEqual(currentDate);
     });
     
     it('Other form fields should be blank for new Asset records', function() {

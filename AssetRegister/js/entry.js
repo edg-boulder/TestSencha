@@ -7,7 +7,7 @@
         }
     });
 
-    $('button[id="btnReset"]').on('click', (function () {
+    $('button[id="reset"]').on('click', (function () {
         $('input[type=text],input[type=password],input[type=email]').each(function () {
             var $this = $(this);
             $this.val('');

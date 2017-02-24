@@ -40,7 +40,7 @@ describe('Login', function() {
      */
     beforeEach(function() {
         Page.resetButton()
-            .click(10, 10);
+            .click();
     });
     
     it('Screenshot should match baseline', function(done) {
@@ -49,7 +49,7 @@ describe('Login', function() {
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
-            .click(10, 10);
+            .click();
         
         Page.errorText()
             .textLike('Email address is required')
@@ -66,7 +66,7 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .click(20, 20);
+            .click();
         
         Page.errorText()
             .textLike('User with this email address not found');
@@ -82,7 +82,7 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .click(20, 20);
+            .click();
         
         Page.errorText()
             .textLike('You entered an invalid password');
@@ -116,7 +116,7 @@ describe('Login', function() {
             .type('senchasencha');
             
         Page.submitButton()
-            .click(20, 20)
+            .click()
             .wait(1000)
             .getUrl(function(url) {
                 expect(url).toContain('Default.aspx'); 

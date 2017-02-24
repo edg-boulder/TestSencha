@@ -37,7 +37,7 @@
       <button type="submit" class="button buttonBlue wide" id="submit">Register
         <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
       </button>
-      <button type="button" class="button buttonGrey narrow" id="reset">Reset
+      <button class="button buttonGrey narrow" id="reset">Reset
         <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
       </button>
   </div>

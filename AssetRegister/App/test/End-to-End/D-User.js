@@ -156,7 +156,7 @@ describe("User.js", function() {
             .setValue('senchasencha');
             
         Page.saveButton()
-            .click(5, 5);
+            .click();
             
         Page.messageBox()
             .hidden();
