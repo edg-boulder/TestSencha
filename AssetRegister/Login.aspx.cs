@@ -100,7 +100,21 @@ namespace AssetRegister
                 // API Key has been specified, so erase and restore a fresh set of data for that user
                 string apiKey = Request.Params["apiKey"];
 
-                Security.GenerateSampleData(apiKey);
+                // Allow multiple keys to be defined, if testing against multiple browsers with multiple user accounts.
+                if (apiKey.IndexOf(",") > 0)
+                {
+                    string[] apiKeys = apiKey.Split(',');
+
+                    foreach(string key in apiKeys)
+                    {
+                        Security.GenerateSampleData(key);
+                    }
+                } 
+                else
+                {
+                    // Or just reset one user's data
+                    Security.GenerateSampleData(apiKey);
+                }
             }
         }
     }

@@ -1,6 +1,5 @@
 {
-    "apps": [
-    ],
+    "apps": [],
     "frameworks": {
         "ext": {
             "path": "ext",
