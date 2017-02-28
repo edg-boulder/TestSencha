@@ -43,7 +43,7 @@ describe('Login', function() {
             .click();
     });
     
-    it('Screenshot should match baseline', function(done) {
+    it('Screenshot should match baseline', function() {
         ST.screenshot('Login');
     });
     
