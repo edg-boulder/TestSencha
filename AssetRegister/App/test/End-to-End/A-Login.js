@@ -107,13 +107,24 @@ describe('Login', function() {
     });
     
     it('Should login when valid login credentials have been provided and redirect to the app', function() {
+        var emailAddress,
+            password = 'senchasencha';
+        
+        if (ST.browser.is.Chrome) {
+            emailAddress = 'daniel.gallo+account1@gmail.com';
+        } else if (ST.browser.is.Firefox) {
+            emailAddress = 'daniel.gallo+account2@gmail.com';
+        } else {
+            emailAddress = 'daniel.gallo+account3@gmail.com';
+        }
+        
         Page.emailField()
             .focus()
-            .type('testaccount@sencha.com');
+            .type(emailAddress);
         
         Page.passwordField()
             .focus()
-            .type('senchasencha');
+            .type(password);
             
         Page.submitButton()
             .click()

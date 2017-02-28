@@ -4,17 +4,12 @@
     "coverageFilters": [],
     "scenarios": [
         {
-            "libs": [
-                {
-                    "disabled": false,
-                    "path": "new/library.js"
-                }
-            ],
+            "libs": [],
             "coverageFilters": [],
             "sandbox": true,
             "directory": "End-to-End",
             "name": "End-to-End",
-            "page": "http://localhost/AssetRegister/Login.aspx?apiKey=joch330hbos97sr0nsimx2yeu6qj36ce"
+            "page": "https://se.sencha.com/AssetRegister/Login.aspx?apiKey=p8qru66tx96f27r0akb12pfcgi4ffnj5,0itu07lfsakmomw7iezn6l4egu25f087,p5kek0r83l2dz0eg1qixzdtb7sxkd8rv"
         }
     ]
 }
