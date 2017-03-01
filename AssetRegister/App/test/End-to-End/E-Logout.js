@@ -27,11 +27,10 @@ describe('Logout.js', function() {
             ST.navigate(baseUrl + '/Default.aspx')
                 .wait(1000)
                 .getUrl(function(url) {
-                
-                // Should redirect back to the Login page as session is no longer valid
-                expect(url).toContain('Login.aspx'); 
-                done();
-            });
-        })
-    })
+                    // Should redirect back to the Login page as session is no longer valid
+                    expect(url).toContain('Login.aspx'); 
+                    done();
+                });
+        });
+    });
 });
