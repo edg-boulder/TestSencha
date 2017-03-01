@@ -35,6 +35,8 @@ describe('Login', function() {
         }
     };
 
+    var timeToWait = 5000;
+
     /**
      * Before each test spec, we reset the state of the form, by clicking the form's Reset button
      */
@@ -49,7 +51,8 @@ describe('Login', function() {
     
     it('Should not login without an email address or password specified', function() {
         Page.submitButton()
-            .click();
+            .click()
+            .wait(timeToWait);
         
         Page.errorText()
             .textLike('Email address is required')
@@ -66,7 +69,8 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .click();
+            .click()
+            .wait(timeToWait);
         
         Page.errorText()
             .textLike('User with this email address not found');
@@ -82,7 +86,8 @@ describe('Login', function() {
             .type('test');
             
         Page.submitButton()
-            .click();
+            .click()
+            .wait(timeToWait);
         
         Page.errorText()
             .textLike('You entered an invalid password');
@@ -91,7 +96,7 @@ describe('Login', function() {
     it('Should navigate to the Registration screen when the Register link is clicked', function() {
         Page.registrationLink()
             .click()
-            .wait(1000)
+            .wait(timeToWait)
             .getUrl(function(url) {
                 expect(url).toContain('Register.aspx'); 
             });
@@ -100,7 +105,7 @@ describe('Login', function() {
     it('Should navigate back to the Login screen when the Login link is clicked', function() {
         Page.loginLink()
             .click()
-            .wait(1000)
+            .wait(timeToWait)
             .getUrl(function(url) {
                 expect(url).toContain('Login.aspx'); 
             });
@@ -112,7 +117,7 @@ describe('Login', function() {
         
         if (ST.browser.is.Chrome) {
             emailAddress = 'daniel.gallo+account1@gmail.com';
-        } else if (ST.browser.is.Firefox) {
+        } else if (ST.browser.is.IE) {
             emailAddress = 'daniel.gallo+account2@gmail.com';
         } else {
             emailAddress = 'daniel.gallo+account3@gmail.com';
@@ -128,7 +133,7 @@ describe('Login', function() {
             
         Page.submitButton()
             .click()
-            .wait(1000)
+            .wait(timeToWait)
             .getUrl(function(url) {
                 expect(url).toContain('Default.aspx'); 
             });
