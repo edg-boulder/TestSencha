@@ -1,4 +1,4 @@
-describe("User.js", function() {
+describe('User', function() {
     var Page = {
         menu: function() {
             return ST.dataView('#menu');

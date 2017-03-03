@@ -1,8 +1,8 @@
-describe('Logout.js', function() {
+describe('Logout', function() {
     var Page = {
         logoutButton: function() {
             return ST.button('[reference=logout]');
-        }  
+        }
     };
     
     it('Logout button should be visible', function() {
@@ -15,7 +15,7 @@ describe('Logout.js', function() {
             .click()
             .wait(2000)
             .getUrl(function(url) {
-                expect(url).toContain('Logout.aspx'); 
+                expect(url).toContain('Logout.aspx');
             });
     });
     
@@ -28,7 +28,7 @@ describe('Logout.js', function() {
                 .wait(1000)
                 .getUrl(function(url) {
                     // Should redirect back to the Login page as session is no longer valid
-                    expect(url).toContain('Login.aspx'); 
+                    expect(url).toContain('Login.aspx');
                     done();
                 });
         });

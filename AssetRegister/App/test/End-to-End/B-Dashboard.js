@@ -1,19 +1,19 @@
-describe('Dashboard.js', function() {
+describe('Dashboard', function() {
     var Page = {
         /*
             Dashboard screen components
         */
         assetCountPanel: function() {
-            return ST.component('container#assetCount');  
+            return ST.component('assetcount');  
         },
         assetValuePanel: function() {
-            return ST.component('container#assetValue');  
+            return ST.component('assetvalue');  
         },
         assetCategorySpendChart: function() {
-            return ST.component('polar#assetCategorySpend');
+            return ST.component('categoryspend');
         },
         assetMonthlySpendChart: function() {
-            return ST.component('cartesian#assetMonthlySpend');
+            return ST.component('monthlyspend');
         }
     };
     

@@ -1,4 +1,4 @@
-describe("Asset.js", function() {
+describe('Asset', function() {
     var Page = {
         menu: function() {
             return ST.dataView('#menu');
@@ -63,10 +63,10 @@ describe("Asset.js", function() {
             Dashboard panels
         */
         assetCountPanel: function() {
-            return ST.component('container#assetCount');  
+            return ST.component('assetcount');  
         },
         assetValuePanel: function() {
-            return ST.component('container#assetValue');  
+            return ST.component('assetvalue');  
         }
     };
     
@@ -156,6 +156,9 @@ describe("Asset.js", function() {
     it('Should show the Asset form when clicking the Add New button', function() {
         Page.addButton()
             .click();
+            
+        Page.form()
+            .visible();
     });
     
     it('Saving an Asset without entering values should show validation message and prevent save', function() {
